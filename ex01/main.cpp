@@ -2,10 +2,11 @@
 // Created by moboustt on 29/1/2021.
 //
 
-#include <MyAwesomePhoneBook.hpp>
+#include "MyAwesomePhoneBook.h"
 
 int main(){
     bool isRunning = true;
+    MyAwesomePhoneBook myAwesomePhoneBook;
     std::string input;
 
     std::cout << "#Phonebook" << std::endl << "# Enter your command [HELP, ADD, SEARCH, EXIT]:" << std::endl;
