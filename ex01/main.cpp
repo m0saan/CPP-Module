@@ -14,8 +14,12 @@ int main(){
     while (isRunning){
         std::cout << ">";
         std::getline(std::cin, input);
-        if (input == "ADD") {}
-        else if (input == "SEARCH") {}
+        if (input == "ADD") {
+            myAwesomePhoneBook.addContact();
+            std::cout << "Contact has been added!" << std::endl;
+        }
+        else if (input == "SEARCH")
+            myAwesomePhoneBook.searchContact();
         else if (input == "EXIT") {
             std::cout << "Exiting... " << std::endl;
             isRunning = false;
