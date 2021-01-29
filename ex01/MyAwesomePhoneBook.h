@@ -5,17 +5,24 @@
 #ifndef CPP_MODULE_MYAWESOMEPHONEBOOK_H
 #define CPP_MODULE_MYAWESOMEPHONEBOOK_H
 
-#include <string>
 #include <iostream>
-#include "contact.h"
+#include "Contact.h"
 
 class MyAwesomePhoneBook {
 public:
     MyAwesomePhoneBook();
     ~MyAwesomePhoneBook();
+
+    void	addContact(void);
+    void	searchContact(void);
+    void	showSearchHeader(void);
+    void    showPrompts(int index, Contact &contact);
+
 private:
     std::size_t size;
-    contact *Contacts;
+    Contact *contacts;
+
+    void putTable() const;
 };
 
 
