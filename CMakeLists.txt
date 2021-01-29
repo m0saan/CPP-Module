@@ -9,5 +9,5 @@ add_executable(CPP_Module
         ex01/MyAwesomePhoneBook.cpp
         ex01/MyAwesomePhoneBook.h
         ex01/main.cpp
-        ex01/contact.cpp
-        ex01/contact.h)
+        ex01/Contact.cpp
+        ex01/Contact.h)
