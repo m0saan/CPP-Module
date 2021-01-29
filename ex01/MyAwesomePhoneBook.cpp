@@ -3,3 +3,11 @@
 //
 
 #include "MyAwesomePhoneBook.h"
+
+MyAwesomePhoneBook::MyAwesomePhoneBook() : size() {
+    Contacts = new contact[8];
+}
+
+MyAwesomePhoneBook::~MyAwesomePhoneBook() {
+    delete Contacts;
+}
