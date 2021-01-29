@@ -5,13 +5,12 @@
 #ifndef CPP_MODULE_CONTACT_H
 #define CPP_MODULE_CONTACT_H
 
-#include "MyAwesomePhoneBook.h"
+#include <string>
 
-class contact {
+class Contact {
 public:
-private:
     std::string infos[11];
-
+    static std::string fields[11];
     enum Field {
         FirstName = 0,
         LastName,
@@ -26,6 +25,5 @@ private:
         Secret
     };
 };
-
 
 #endif //CPP_MODULE_CONTACT_H
