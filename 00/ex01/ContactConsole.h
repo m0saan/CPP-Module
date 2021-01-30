@@ -6,9 +6,13 @@
 #define CPP_MODULE_CONTACTCONSOLE_H
 
 #include <string>
+#include <iostream>
+#include "Contact.h"
 
 class ContactConsole {
 public:
+    ContactConsole();
+
     ContactConsole(const std::string &fName, const std::string &lName, const std::string &nickName);
 
     const std::string &getFirstName() const;
@@ -17,6 +21,7 @@ public:
 
     const std::string &getNickName() const;
 
+    void displayContactInfos(const Contact &contact) const;
 private:
     std::string firstName;
     std::string lastName;
