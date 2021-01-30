@@ -15,17 +15,17 @@ MyAwesomePhoneBook::~MyAwesomePhoneBook() {
 
 void MyAwesomePhoneBook::addContact() {
     Contact newContact;
-    showPrompts(Contact::Field::FirstName, newContact);
-    showPrompts(Contact::Field::LastName, newContact);
-    showPrompts(Contact::Field::Nickname, newContact);
-    showPrompts(Contact::Field::Login, newContact);
-    showPrompts(Contact::Field::Address, newContact);
-    showPrompts(Contact::Field::Email, newContact);
-    showPrompts(Contact::Field::Phone, newContact);
-    showPrompts(Contact::Field::Birthday, newContact);
-    showPrompts(Contact::Field::FavoriteMeal, newContact);
-    showPrompts(Contact::Field::UnderwearColor, newContact);
-    showPrompts(Contact::Field::Secret, newContact);
+    showPrompts(Contact::FirstName, newContact);
+    showPrompts(Contact::LastName, newContact);
+    showPrompts(Contact::Nickname, newContact);
+    showPrompts(Contact::Login, newContact);
+    showPrompts(Contact::Address, newContact);
+    showPrompts(Contact::Email, newContact);
+    showPrompts(Contact::Phone, newContact);
+    showPrompts(Contact::Birthday, newContact);
+    showPrompts(Contact::FavoriteMeal, newContact);
+    showPrompts(Contact::UnderwearColor, newContact);
+    showPrompts(Contact::Secret, newContact);
     contacts[size++] = newContact;
 }
 
