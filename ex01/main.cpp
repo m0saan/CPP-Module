@@ -9,7 +9,7 @@ int main(){
     MyAwesomePhoneBook myAwesomePhoneBook;
     std::string input;
 
-    std::cout << "#Phonebook" << std::endl << "# Enter your command [HELP, ADD, SEARCH, EXIT]:" << std::endl;
+    std::cout << "-*- Phonebook -*-" << std::endl << "# Enter your command [HELP, ADD, SEARCH, EXIT]:" << std::endl;
 
     while (isRunning){
         std::cout << ">";
@@ -24,6 +24,8 @@ int main(){
             std::cout << "Exiting... " << std::endl;
             isRunning = false;
         }
+        else
+            std::cout << "Please enter a valid command!" << std::endl;
     }
     return 0;
 }
