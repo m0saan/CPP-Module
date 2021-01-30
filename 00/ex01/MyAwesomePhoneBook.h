@@ -23,10 +23,10 @@ public:
 private:
     std::size_t size;
     Contact *contacts;
+    ContactConsole console;
 
     void putTable() const;
     void putTableColmuns(const ContactConsole &contactConsole, std::size_t i) const;
-    void displayContactInfos() const;
     std::string checkOutput(const std::string &str) const;
 };
 

@@ -57,7 +57,14 @@ void MyAwesomePhoneBook::searchContact() {
         return;
     }
     putTable();
-    displayContactInfos();
+    std::cout << "# Enter Index to display Informations or 0 to Exit" << std::endl << " >>> ";
+    int index;
+    std::cin >> index;
+    std::cin.ignore();
+    index -= 1;
+
+    if (index < 0) return;
+    console.displayContactInfos(contacts[index]);
 }
 
 bool MyAwesomePhoneBook::isEmptyPhonebook() const {
@@ -75,26 +82,4 @@ void MyAwesomePhoneBook::putTableColmuns(const ContactConsole &contactConsole, s
     std::cout << std::setw(10) << std::right << contactConsole.getFirstName() << '|';
     std::cout << std::setw(10) << std::right << contactConsole.getLastName() << '|';
     std::cout << std::setw(10) << std::right << contactConsole.getNickName() << '|';
-}
-
-void MyAwesomePhoneBook::displayContactInfos() const {
-    std::cout << "# Enter Index to display Informations or 0 to Exit" << std::endl << " >>> ";
-    int index;
-    std::cin >> index;
-    std::cin.ignore();
-    index -= 1;
-
-    if (index < 0) return;
-
-    std::cout << "First Name: " << contacts[index].infos[0] << std::endl;
-    std::cout << "Last Name: " << contacts[index].infos[1] << std::endl;
-    std::cout << "Nick Name: " << contacts[index].infos[2] << std::endl;
-    std::cout << "Login: " << contacts[index].infos[3] << std::endl;
-    std::cout << "Address: " << contacts[index].infos[4] << std::endl;
-    std::cout << "Email: " << contacts[index].infos[5] << std::endl;
-    std::cout << "Phone: " << contacts[index].infos[6] << std::endl;
-    std::cout << "Birthday: " << contacts[index].infos[7] << std::endl;
-    std::cout << "Favourite Meal: " << contacts[index].infos[8] << std::endl;
-    std::cout << "UnderwearColor: " << contacts[index].infos[9] << std::endl;
-    std::cout << "Secret: " << contacts[index].infos[10] << std::endl;
 }
