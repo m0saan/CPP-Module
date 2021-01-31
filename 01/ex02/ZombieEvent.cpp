@@ -20,3 +20,9 @@ Zombie *ZombieEvent::newZombie(const std::string &name) {
     Zombie *zombie = new Zombie(name, zombieType);
     return zombie;
 }
+
+Zombie* ZombieEvent::randomChump() {
+    Zombie *newZombie = new Zombie(zombie.random(), "magical");
+    newZombie->announce();
+    return newZombie;
+}

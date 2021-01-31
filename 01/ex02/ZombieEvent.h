@@ -13,8 +13,10 @@ public:
     ~ZombieEvent();
     void setZombieType(const std::string &type);
     Zombie* newZombie(const std::string &name);
+    Zombie* randomChump();
 private:
     std::string zombieType;
+    Zombie zombie;
 };
 
 

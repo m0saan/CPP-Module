@@ -20,3 +20,9 @@ Zombie::~Zombie() {
 Zombie::Zombie(const std::string &name, const std::string &type): zombieName(name), zombieType(type) {
 
 }
+
+std::string Zombie::random() {
+    return randomNames[rand() % 17];
+}
+
+std::string Zombie::randomNames[17] = { "Antarctican","Muddy","Hollow","Crass","Riff","Heartless","Rock","Master","Sleazy","Deep","Juvenile","Meek","Orange","Big","Elfin","Scandalous"};
