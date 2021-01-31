@@ -13,13 +13,11 @@ HumanB::~HumanB() {
 }
 
 void HumanB::attack() {
-    std::cout << name << " attacks with his " << weapon.getType() << std::endl;
+    std::cout << name << " attacks with his " << weapon->getType() << std::endl;
 }
 
-void HumanB::setWeapon(const Weapon &wp) {
-    this->weapon = wp;
+void HumanB::setWeapon(Weapon &wp) {
+    weapon = &wp;
 }
 
-HumanB::HumanB(const std::string& pName) {
-    name = pName;
-}
+HumanB::HumanB(const std::string& pName) : name(pName) { }
