@@ -14,7 +14,10 @@ public:
     ~HumanB();
 
     void attack();
+
     void setWeapon(Weapon &weapon);
+
+    void setName(const std::string &name);
 
 private:
     Weapon *weapon;

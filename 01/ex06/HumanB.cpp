@@ -16,8 +16,13 @@ void HumanB::attack() {
     std::cout << name << " attacks with his " << weapon->getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon &wp) {
-    weapon = &wp;
-}
 
 HumanB::HumanB(const std::string& pName) : name(pName) { }
+
+void HumanB::setWeapon(Weapon &weapon) {
+    HumanB::weapon = &weapon;
+}
+
+void HumanB::setName(const std::string &name) {
+    HumanB::name = name;
+}

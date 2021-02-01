@@ -21,6 +21,6 @@ void Weapon::setType(const std::string &pType) {
     type = pType;
 }
 
-Weapon::Weapon(const std::string &Ptype) {
-    type = Ptype;
+Weapon::Weapon(const std::string &type) {
+    type = type;
 }
