@@ -12,13 +12,22 @@ Replace::~Replace() {
 }
 
 void Replace::replace() {
-    std::ifstream ifs(filename);
+    std::fstream fs;
+    fs.open(filename, std::ios::out | std::ios::in);
     std::stringstream ss;
     std::string line;
-    while (getline(ifs, line))
+    while (getline(fs, line)) {
         processLine(line);
+        ss << line;
+    }
+    fs << ss.rdbuf();
+    fs.close();
 }
 
 void Replace::processLine(std::string &line) {
-    std::cout << line << std::endl;
+    std::string::size_type itr = line.find(s1);
+    while(itr != std::string::npos) {
+        line.replace(itr, s1.length(), s2);
+        itr = line.find(s1);
+    }
 }

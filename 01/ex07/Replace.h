@@ -12,10 +12,12 @@
 
 class Replace {
 public:
+
     Replace(const std::string &filename, const std::string &s1, const std::string & s2);
     ~Replace();
     void replace();
     void processLine(std::string &line);
+
 private:
     std::string s1;
     std::string s2;
