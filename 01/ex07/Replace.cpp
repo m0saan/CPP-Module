@@ -14,13 +14,13 @@ Replace::~Replace() {
 void Replace::replace() {
     std::fstream fs;
     fs.open(filename, std::ios::out | std::ios::in);
-    std::stringstream ss;
+    std::ostringstream oss;
     std::string line;
     while (getline(fs, line)) {
         processLine(line);
-        ss << line;
+        oss << line;
     }
-    fs << ss.rdbuf();
+    fs << oss.rdbuf();
     fs.close();
 }
 
