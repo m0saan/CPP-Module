@@ -84,6 +84,16 @@ Fixed Fixed::operator-(const Fixed &rhs) const {
     return Fixed(this->getRawBits() - this->getRawBits());
 }
 
+Fixed Fixed::operator*(const Fixed &rhs) const {
+    return Fixed(this->getRawBits() * rhs.getRawBits());
+}
+
+Fixed Fixed::operator/(const Fixed &rhs) const {
+    if (rhs.getRawBits() > 0)
+        return Fixed(this->getRawBits() * rhs.getRawBits());
+    else throw std::runtime_error ("Cannot divide by zero");
+}
+
 std::ostream &operator<<(std::ostream &ostream, Fixed const &fixed) {
     ostream << fixed.toFloat();
     return ostream;
