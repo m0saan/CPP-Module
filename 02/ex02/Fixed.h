@@ -38,6 +38,9 @@ public:
     Fixed operator*(Fixed const &rhs) const ;
     Fixed operator/(Fixed const &rhs) const ;
 
+    Fixed operator++(int);
+    Fixed &operator++();
+
 
 private:
     int fixedPointValue;

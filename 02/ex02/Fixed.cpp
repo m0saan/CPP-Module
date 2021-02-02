@@ -6,13 +6,9 @@
 #define FIXED_POINT_ONE (1 << 8)
 
 
-Fixed::Fixed() : fixedPointValue(0) {
-    std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : fixedPointValue(0) {}
 
-Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 int Fixed::getRawBits() const {
     return fixedPointValue;
@@ -23,24 +19,20 @@ void Fixed::setRawBits(int const fixedPointValue) {
 }
 
 Fixed::Fixed(Fixed const &other) {
-    std::cout << "Copy constructor called" << std::endl;
     *this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
-    std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
         this->fixedPointValue = other.getRawBits();
     return *this;
 }
 
 Fixed::Fixed(const int x) {
-    std::cout << "Int constructor called" << std::endl;
     fixedPointValue = (x << Fixed::NUM_FRAC_BITS);
 }
 
 Fixed::Fixed(const float f)  {
-    std::cout << "Float constructor called" << std::endl;
     fixedPointValue = std::roundf(f * FIXED_POINT_ONE);
 }
 
@@ -85,13 +77,24 @@ Fixed Fixed::operator-(const Fixed &rhs) const {
 }
 
 Fixed Fixed::operator*(const Fixed &rhs) const {
-    return Fixed(this->getRawBits() * rhs.getRawBits());
+    return Fixed(this->toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed &rhs) const {
     if (rhs.getRawBits() > 0)
         return Fixed(this->getRawBits() * rhs.getRawBits());
     else throw std::runtime_error ("Cannot divide by zero");
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed fixed(*this);
+    ++fixedPointValue;
+    return fixed;
+}
+
+Fixed &Fixed::operator++() {
+    this->fixedPointValue++;
+    return *this;
 }
 
 std::ostream &operator<<(std::ostream &ostream, Fixed const &fixed) {
