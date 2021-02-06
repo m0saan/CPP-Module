@@ -4,6 +4,8 @@
 
 #include "FragTrap.h"
 
+typedef void (FrapTrap::*CALL_MEMBER_FUNC)(std::string const &target) const;
+
 FragTrap::FragTrap(const std::string &pName) : m_Name(pName) {
     std::cout << "FragTrap Default constructor called" << std::endl;
 }
@@ -20,6 +22,26 @@ void FragTrap::rangedAttack(const std::string &target) {
 void FragTrap::meleeAttack(const std::string &target) {
     std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
     std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
+}
+
+void FragTrap::actionKillbot(std::string const & target) const {
+    std::cout << "actionKillbot has been launched on " << target << std::endl;
+}
+
+void FragTrap::actionRepulsive(std::string const & target) const {
+    std::cout << "actionRepulsive has been launched on " << target << std::endl;
+}
+
+void FragTrap::actionCombustion(std::string const & target) const {
+    std::cout << "actionCombustion has been launched on " << target << std::endl;
+}
+
+void FragTrap::actionHammer(std::string const & target) const {
+    std::cout << "actionHammer has been launched on " << target << std::endl;
+}
+
+void FragTrap::actionHyperion(std::string const & target) const {
+    std::cout << "actionHyperion has been launched on " << target << std::endl;
 }
 
 void FragTrap::takeDamage(unsigned int amount) {
@@ -62,7 +84,7 @@ int FragTrap::getMHitPoints() const {
 }
 
 void FragTrap::setMHitPoints(int p_HitPoints) {
-    if (!(m_HitPoints + p_HitPoints > m_MaxHitPoints))
+    if (m_HitPoints + p_HitPoints <= m_MaxHitPoints)
         m_HitPoints += p_HitPoints;
     else
         m_HitPoints = m_MaxHitPoints;
@@ -74,7 +96,7 @@ int FragTrap::getMEnergyPoints() const {
 }
 
 void FragTrap::setMEnergyPoints(int p_EnergyPoints) {
-    if (!(m_EnergyPoints + p_EnergyPoints > m_MaxEnergyPoints))
+    if (m_EnergyPoints + p_EnergyPoints <= m_MaxEnergyPoints)
         m_EnergyPoints += p_EnergyPoints;
     else
         m_EnergyPoints = m_MaxEnergyPoints;
@@ -86,6 +108,14 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target) {
     else{
         m_EnergyPoints -= 25;
         std::cout << "Yaaay!.. This time it'll be awesome, I promise!" << std::endl;
+        std::string funcPool[5] = { "rangedAttack", "meleeAttack" };
+        CALL_MEMBER_FUNC actionsPool[] = { &FragTrap::actionCombustion, &FragTrap::actionHammer, &FragTrap::actionKillbot, &FragTrap::actionRepulsive, &FragTrap::actionHyperion };
+        for (int i = 0; i < 2; ++i) {
+            if (target == funcPool[i]){
+                CALL_MEMBER_FUNC func = actionsPool[i];
+                (this->*func)(target);
+            }
+        }
     }
 }
 
