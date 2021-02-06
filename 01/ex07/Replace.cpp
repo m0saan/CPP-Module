@@ -5,23 +5,27 @@
 #include "Replace.h"
 
 Replace::Replace(const std::string &pFilename, const std::string &pS1, const std::string &pS2)
-    : filename(pFilename), s1(pS1), s2(pS2) { }
+    : filename(pFilename), s1(pS1), s2(pS2) {
+    std::cout << "Replace's Destructor has been called!" << std::endl;
+}
 
 Replace::~Replace() {
     std::cout << "Replace's Destructor has been called!" << std::endl;
 }
 
 void Replace::replace() {
-    std::fstream fs;
-    fs.open(filename, std::ios::out | std::ios::in);
-    std::ostringstream oss;
-    std::string line;
-    while (getline(fs, line)) {
+    std::ifstream ifs(filename);
+    std::string line, stream;
+    while (getline(ifs, line)) {
         processLine(line);
-        oss << line;
+        stream.append(line);
     }
-    fs << oss.rdbuf();
-    fs.close();
+    std::cout << stream << std::endl;
+    std::ofstream ofs;
+    ofs.open(filename.append(".replace"), std::ios::out);
+    ofs << stream;
+    ifs.close();
+    ofs.close();
 }
 
 void Replace::processLine(std::string &line) {

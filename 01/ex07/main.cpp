@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Replace.h"
 
-int main(int ac, const char ** const av){
+int main(int ac, const char ** const av) {
     if (ac != 4) { std::cout << "Error: Invalid number of arguments" << std::endl << "Usage: filename [s1] [s2]" << std::endl; }
     else{
         Replace replace(av[1], av[2], av[3]);
