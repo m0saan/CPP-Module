@@ -23,11 +23,11 @@ void FragTrap::meleeAttack(const std::string &target) {
 }
 
 void FragTrap::takeDamage(unsigned int amount) {
-
+    std::cout << "FR4G-TP " << "Hey, watch out! " << "got " << amount << " of damage."<< std::endl;
 }
 
 void FragTrap::beRepaired(unsigned int amount) {
-
+    std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &fragTrap) {
@@ -55,5 +55,37 @@ FragTrap::FragTrap(const FragTrap &fragTrap) {
     this->m_MeleeAttackDamage = fragTrap.m_MeleeAttackDamage;
     this->m_RangedAttackDamage   = fragTrap.m_RangedAttackDamage;
     this->m_ArmorDamageReduction = fragTrap.m_ArmorDamageReduction;
+}
+
+int FragTrap::getMHitPoints() const {
+    return m_HitPoints;
+}
+
+void FragTrap::setMHitPoints(int p_HitPoints) {
+    if (!(m_HitPoints + p_HitPoints > m_MaxHitPoints))
+        m_HitPoints += p_HitPoints;
+    else
+        m_HitPoints = m_MaxHitPoints;
+
+}
+
+int FragTrap::getMEnergyPoints() const {
+    return m_EnergyPoints;
+}
+
+void FragTrap::setMEnergyPoints(int p_EnergyPoints) {
+    if (!(m_EnergyPoints + p_EnergyPoints > m_MaxEnergyPoints))
+        m_EnergyPoints += p_EnergyPoints;
+    else
+        m_EnergyPoints = m_MaxEnergyPoints;
+}
+
+void FragTrap::vaulthunter_dot_exe(const std::string &target) {
+    if (m_EnergyPoints - 25 < 0)
+        std::cout << "Brrrh... you're out of energy!!" << std::endl;
+    else{
+        m_EnergyPoints -= 25;
+        std::cout << "Yaaay!.. This time it'll be awesome, I promise!" << std::endl;
+    }
 }
 

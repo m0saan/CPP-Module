@@ -18,10 +18,19 @@ public:
 
     FragTrap &operator=(FragTrap const &fragTrap);
 
+    int getMHitPoints() const;
+    void setMHitPoints(int p_HitPoints);
+
+    int getMEnergyPoints() const;
+
+    void setMEnergyPoints(int p_EnergyPoints);
+
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
+
+    void vaulthunter_dot_exe(std::string const & target);
 
 private:
 
