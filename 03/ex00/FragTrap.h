@@ -28,11 +28,11 @@ public:
 
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);
-    void actionKillbot(std::string const & target) const;
-    void actionRepulsive(std::string const & target) const ;
-    void actionCombustion(std::string const & target) const;
-    void actionHammer(std::string const & target) const;
-    void actionHyperion(std::string const & target) const;
+    void actionKillbot() const;
+    void actionRepulsive() const ;
+    void actionCombustion() const;
+    void actionHammer() const;
+    void actionHyperion() const;
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 

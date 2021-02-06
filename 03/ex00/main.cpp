@@ -5,6 +5,8 @@
 #include "FragTrap.h"
 
 int main(){
-    // FragTrap fragTrap();
+    FragTrap fragTrap("PIVOX");
+    fragTrap.vaulthunter_dot_exe("actionCombustion");
+
     return 0;
 }

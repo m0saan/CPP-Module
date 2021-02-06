@@ -4,7 +4,7 @@
 
 #include "FragTrap.h"
 
-typedef void (FrapTrap::*CALL_MEMBER_FUNC)(std::string const &target) const;
+typedef void (FragTrap::*CALL_MEMBER_FUNC)() const;
 
 FragTrap::FragTrap(const std::string &pName) : m_Name(pName) {
     std::cout << "FragTrap Default constructor called" << std::endl;
@@ -24,24 +24,24 @@ void FragTrap::meleeAttack(const std::string &target) {
     std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
 }
 
-void FragTrap::actionKillbot(std::string const & target) const {
-    std::cout << "actionKillbot has been launched on " << target << std::endl;
+void FragTrap::actionKillbot() const {
+    std::cout << "actionKillbot has been launched!"<< std::endl;
 }
 
-void FragTrap::actionRepulsive(std::string const & target) const {
-    std::cout << "actionRepulsive has been launched on " << target << std::endl;
+void FragTrap::actionRepulsive() const {
+    std::cout << "actionRepulsive has been launched!" << std::endl;
 }
 
-void FragTrap::actionCombustion(std::string const & target) const {
-    std::cout << "actionCombustion has been launched on " << target << std::endl;
+void FragTrap::actionCombustion() const {
+    std::cout << "actionCombustion has been launched!" << std::endl;
 }
 
-void FragTrap::actionHammer(std::string const & target) const {
-    std::cout << "actionHammer has been launched on " << target << std::endl;
+void FragTrap::actionHammer() const {
+    std::cout << "actionHammer has been launched!" << std::endl;
 }
 
-void FragTrap::actionHyperion(std::string const & target) const {
-    std::cout << "actionHyperion has been launched on " << target << std::endl;
+void FragTrap::actionHyperion() const {
+    std::cout << "actionHyperion has been launched!"  << std::endl;
 }
 
 void FragTrap::takeDamage(unsigned int amount) {
@@ -108,12 +108,12 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target) {
     else{
         m_EnergyPoints -= 25;
         std::cout << "Yaaay!.. This time it'll be awesome, I promise!" << std::endl;
-        std::string funcPool[5] = { "rangedAttack", "meleeAttack" };
+        std::string funcPool[] = { "actionKillbot", "actionRepulsive", "actionCombustion", "actionHammer", "actionHyperion" };
         CALL_MEMBER_FUNC actionsPool[] = { &FragTrap::actionCombustion, &FragTrap::actionHammer, &FragTrap::actionKillbot, &FragTrap::actionRepulsive, &FragTrap::actionHyperion };
-        for (int i = 0; i < 2; ++i) {
+        for (int i = 0; i < 5; ++i) {
             if (target == funcPool[i]){
                 CALL_MEMBER_FUNC func = actionsPool[i];
-                (this->*func)(target);
+                (this->*func)();
             }
         }
     }
