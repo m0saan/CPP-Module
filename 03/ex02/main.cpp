@@ -3,9 +3,10 @@
 //
 
 #include "ScavTrap.h"
-#include "Cla"
+#include "ClapTrap.h"
+#include "FragTrap.h"
 
 int main(){
-
+    ScavTrap scavTrap;
     return 0;
 }
