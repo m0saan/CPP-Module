@@ -6,8 +6,12 @@
 
 typedef void (FragTrap::*CALL_MEMBER_FUNC)() const;
 
-FragTrap::FragTrap(const std::string &pName) : m_Name(pName) {
+FragTrap::FragTrap() {
     std::cout << "FragTrap Default constructor called" << std::endl;
+}
+
+FragTrap::FragTrap(const std::string &pName) : m_Name(pName) {
+    std::cout << "FragTrap Default constructor called with 1 parameter" << std::endl;
 }
 
 FragTrap::~FragTrap() {
