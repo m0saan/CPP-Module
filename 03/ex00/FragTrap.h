@@ -12,7 +12,6 @@
 class FragTrap {
 
 public:
-
     explicit FragTrap(std::string const &name);
     FragTrap(FragTrap const &fragTrap);
     ~FragTrap();
