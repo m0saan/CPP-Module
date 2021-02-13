@@ -85,23 +85,23 @@ void FragTrap::beRepaired(int amount) {
     std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
 }
 
-void FragTrap::actionKillbot() const {
+void FragTrap::actionKillbot() {
     std::cout << "actionKillbot has been launched!"<< std::endl;
 }
 
-void FragTrap::actionRepulsive() const {
+void FragTrap::actionRepulsive() {
     std::cout << "actionRepulsive has been launched!" << std::endl;
 }
 
-void FragTrap::actionCombustion() const {
+void FragTrap::actionCombustion() {
     std::cout << "actionCombustion has been launched!" << std::endl;
 }
 
-void FragTrap::actionHammer() const {
+void FragTrap::actionHammer() {
     std::cout << "actionHammer has been launched!" << std::endl;
 }
 
-void FragTrap::actionHyperion() const {
+void FragTrap::actionHyperion() {
     std::cout << "actionHyperion has been launched!"  << std::endl;
 }
 

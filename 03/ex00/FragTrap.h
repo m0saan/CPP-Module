@@ -35,11 +35,11 @@ public:
     void    beRepaired(int amount);
 
     // Funny Attacks.
-    void    actionKillbot() const;
-    void    actionRepulsive() const ;
-    void    actionCombustion() const;
-    void    actionHammer() const;
-    void    actionHyperion() const;
+    static void    actionKillbot() ;
+    static void    actionRepulsive() ;
+    static void    actionCombustion() ;
+    static void    actionHammer() ;
+    static void    actionHyperion() ;
 
     void vaulthunter_dot_exe(std::string const & target);
 
