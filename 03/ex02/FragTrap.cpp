@@ -49,6 +49,26 @@ FragTrap::FragTrap(const FragTrap &fragTrap)  : ClapTrap(fragTrap) {
     this->m_ArmorDamageReduction = fragTrap.m_ArmorDamageReduction;
 }
 
+void FragTrap::actionKillbot() {
+    std::cout << "actionKillbot has been launched!"<< std::endl;
+}
+
+void FragTrap::actionRepulsive() {
+    std::cout << "actionRepulsive has been launched!" << std::endl;
+}
+
+void FragTrap::actionCombustion() {
+    std::cout << "actionCombustion has been launched!" << std::endl;
+}
+
+void FragTrap::actionHammer() {
+    std::cout << "actionHammer has been launched!" << std::endl;
+}
+
+void FragTrap::actionHyperion() {
+    std::cout << "actionHyperion has been launched!"  << std::endl;
+}
+
 void FragTrap::vaulthunter_dot_exe(const std::string &target) {
     if (m_EnergyPoints - 25 < 0)
         std::cout << "Brrrh... you're out of energy!!" << std::endl;

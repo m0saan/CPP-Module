@@ -41,34 +41,15 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other) {
 }
 
 void ClapTrap::rangedAttack(const std::string &target) {
-    std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
+    std::cout << "ClapTrap " << m_Name << " attacks " << target << " at range, causing ";
     std::cout << m_RangedAttackDamage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::meleeAttack(const std::string &target) {
-    std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
+    std::cout << "ClapTrap " << m_Name << " attacks " << target << " at range, causing ";
     std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
 }
 
-void ClapTrap::actionKillbot() {
-    std::cout << "actionKillbot has been launched!"<< std::endl;
-}
-
-void ClapTrap::actionRepulsive() {
-    std::cout << "actionRepulsive has been launched!" << std::endl;
-}
-
-void ClapTrap::actionCombustion() {
-    std::cout << "actionCombustion has been launched!" << std::endl;
-}
-
-void ClapTrap::actionHammer() {
-    std::cout << "actionHammer has been launched!" << std::endl;
-}
-
-void ClapTrap::actionHyperion() {
-    std::cout << "actionHyperion has been launched!"  << std::endl;
-}
 
 void ClapTrap::takeDamage(int amount) {
 
@@ -80,5 +61,5 @@ void ClapTrap::takeDamage(int amount) {
 void ClapTrap::beRepaired(int amount) {
     amount = m_HitPoints + (int)amount > m_MaxHitPoints ? m_MaxHitPoints - m_HitPoints : m_HitPoints + amount;
     m_HitPoints += amount;
-    std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
+    std::cout << m_Name << "got " << amount << " of Sweet life juice! " << std::endl;
 }
