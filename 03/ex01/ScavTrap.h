@@ -12,29 +12,22 @@ class ScavTrap {
 
 public:
     ScavTrap();
-    ScavTrap(std::string const& pName);
+    explicit ScavTrap(std::string const& pName);
     ScavTrap(ScavTrap const &scavTrap);
     ~ScavTrap();
 
     ScavTrap &operator=(ScavTrap const &rhs);
 
-    int getMHitPoints() const;
-
-    void setMHitPoints(int mHitPoints);
-
-    void setMEnergyPoints(int mEnergyPoints);
-
-    int getMEnergyPoints() const;
-
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);
-    void actionKillbot() const;
-    void actionRepulsive() const ;
-    void actionCombustion() const;
-    void actionHammer() const;
-    void actionHyperion() const;
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    void takeDamage(int amount);
+    void beRepaired(int amount);
+
+    static void actionKillbot() ;
+    static void actionRepulsive() ;
+    static void actionCombustion() ;
+    static void actionHammer() ;
+    static void actionHyperion() ;
 
     void challengeNewcomer() const;
 

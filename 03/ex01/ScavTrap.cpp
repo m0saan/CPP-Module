@@ -8,6 +8,17 @@ ScavTrap::ScavTrap() {
     std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const std::string &pName) : m_Name(pName) {
+    m_HitPoints =  100;
+    m_MaxHitPoints = 100;
+    m_EnergyPoints = 50;
+    m_MaxEnergyPoints = 50;
+    m_Level = 1;
+    m_MeleeAttackDamage = 20;
+    m_RangedAttackDamage = 15;
+    m_ArmorDamageReduction = 3;
+}
+
 ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap destructor called" << std::endl;
 }
@@ -39,17 +50,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
     return *this;
 }
 
-ScavTrap::ScavTrap(const std::string &pName) : m_Name(pName) {
-    m_HitPoints =  100;
-    m_MaxHitPoints = 100;
-    m_EnergyPoints = 50;
-    m_MaxEnergyPoints = 50;
-    m_Level = 1;
-    m_MeleeAttackDamage = 20;
-    m_RangedAttackDamage = 15;
-    m_ArmorDamageReduction = 3;
-}
-
 void ScavTrap::rangedAttack(const std::string &target) {
     std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
     std::cout << m_RangedAttackDamage << " points of damage!" << std::endl;
@@ -60,54 +60,37 @@ void ScavTrap::meleeAttack(const std::string &target) {
     std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
 }
 
-void ScavTrap::actionKillbot() const {
+void ScavTrap::actionKillbot() {
     std::cout << "actionKillbot has been launched!"<< std::endl;
 }
 
-void ScavTrap::actionRepulsive() const {
+void ScavTrap::actionRepulsive() {
     std::cout << "actionRepulsive has been launched!" << std::endl;
 }
 
-void ScavTrap::actionCombustion() const {
+void ScavTrap::actionCombustion() {
     std::cout << "actionCombustion has been launched!" << std::endl;
 }
 
-void ScavTrap::actionHammer() const {
+void ScavTrap::actionHammer() {
     std::cout << "actionHammer has been launched!" << std::endl;
 }
 
-void ScavTrap::actionHyperion() const {
+void ScavTrap::actionHyperion() {
     std::cout << "actionHyperion has been launched!"  << std::endl;
 }
 
-void ScavTrap::takeDamage(unsigned int amount) {
-    std::cout << "FR4G-TP " << "Hey, watch out! " << "got " << amount << " of damage."<< std::endl;
+void ScavTrap::takeDamage(int amount) {
+
+    amount = amount - m_ArmorDamageReduction;
+    std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
+    m_HitPoints = (m_HitPoints - amount > 0) ? (m_HitPoints - amount) : 0;
 }
 
-void ScavTrap::beRepaired(unsigned int amount) {
+void ScavTrap::beRepaired(int amount) {
+    amount = m_HitPoints + (int)amount > m_MaxHitPoints ? m_MaxHitPoints - m_HitPoints : m_HitPoints + amount;
+    m_HitPoints += amount;
     std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
-}
-
-int ScavTrap::getMHitPoints() const {
-    return m_HitPoints;
-}
-
-int ScavTrap::getMEnergyPoints() const {
-    return m_EnergyPoints;
-}
-
-void ScavTrap::setMHitPoints(int p_HitPoints) {
-    if (m_HitPoints + p_HitPoints <= m_MaxHitPoints)
-        m_HitPoints += p_HitPoints;
-    else
-        m_HitPoints = m_MaxHitPoints;
-}
-
-void ScavTrap::setMEnergyPoints(int p_EnergyPoints) {
-    if (m_EnergyPoints + p_EnergyPoints <= m_MaxEnergyPoints)
-        m_EnergyPoints += p_EnergyPoints;
-    else
-        m_EnergyPoints = m_MaxEnergyPoints;
 }
 
 void ScavTrap::challengeNewcomer() const {
