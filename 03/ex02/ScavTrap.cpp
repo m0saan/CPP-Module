@@ -12,8 +12,8 @@ ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) {
-    std::cout << "ScavTrap constructor called" << std::endl;
+ScavTrap::ScavTrap(const ScavTrap &other)  : ClapTrap(other) {
+    std::cout << "ScavTrap Copy constructor called" << std::endl;
         m_HitPoints =  other.m_HitPoints;
         m_MaxHitPoints = other.m_MaxHitPoints;
         m_EnergyPoints = other.m_EnergyPoints;
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(const ScavTrap &other) {
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
     if (this != &other){
-        std::cout << "ScavTrap constructor called" << std::endl;
+        std::cout << "ScavTrap copy assignment constructor called" << std::endl;
         m_HitPoints =  other.m_HitPoints;
         m_MaxHitPoints = other.m_MaxHitPoints;
         m_EnergyPoints = other.m_EnergyPoints;
@@ -40,6 +40,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 }
 
 ScavTrap::ScavTrap(const std::string &pName) {
+    std::cout << "ScavTrap default constructor with 1 parameter called!" << std::endl;
     m_Name = pName;
     m_HitPoints =  100;
     m_MaxHitPoints = 100;

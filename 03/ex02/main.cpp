@@ -7,6 +7,7 @@
 #include "FragTrap.h"
 
 int main(){
-    ScavTrap scavTrap;
+    ScavTrap scavTrap("Nanatsu");
+    FragTrap fragTrap("KsoKabii");
     return 0;
 }

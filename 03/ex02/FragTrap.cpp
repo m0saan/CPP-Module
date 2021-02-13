@@ -13,6 +13,7 @@ FragTrap::FragTrap() {
 FragTrap::FragTrap(const std::string &pName) {
     m_Name = pName;
     std::cout << "FragTrap Default constructor called with 1 parameter" << std::endl;
+
 }
 
 FragTrap::~FragTrap() {
@@ -20,6 +21,7 @@ FragTrap::~FragTrap() {
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &fragTrap) {
+    std::cout << "FragTrap copy assignment constructor called!" << std::endl;
     if (this != &fragTrap) {
         this->m_Name = fragTrap.m_Name;
         this->m_HitPoints = fragTrap.m_HitPoints;
@@ -34,7 +36,8 @@ FragTrap &FragTrap::operator=(FragTrap const &fragTrap) {
     return *this;
 }
 
-FragTrap::FragTrap(const FragTrap &fragTrap) {
+FragTrap::FragTrap(const FragTrap &fragTrap)  : ClapTrap(fragTrap) {
+    std::cout << "FragTrap copy constructor called!" << std::endl;
     this->m_Name = fragTrap.m_Name;
     this->m_HitPoints = fragTrap.m_HitPoints;
     this->m_MaxHitPoints = fragTrap.m_MaxHitPoints;
