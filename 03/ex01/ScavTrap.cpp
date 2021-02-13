@@ -4,6 +4,14 @@
 
 #include "ScavTrap.h"
 
+std::string ScavTrap::funnyChallenges[ScavTrap::nOfChallenges] = {
+        "Kill varkid pods before they hatch.",
+        "Shoot bullymong-tossed projectiles out of midair.",
+        "Kill enemies with corrosive damage.",
+        "Loot or purchase purple items.",
+        "Collect Money from cash drops."
+};
+
 ScavTrap::ScavTrap() {
     std::cout << "ScavTrap Default constructor called" << std::endl;
 }
@@ -93,6 +101,11 @@ void ScavTrap::beRepaired(int amount) {
     std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
 }
 
-void ScavTrap::challengeNewcomer() const {
+void ScavTrap::challengeNewcomer(std::string const &target) {
+    std::size_t randomIndex;
+    std::srand(time(nullptr));
 
+    randomIndex = std::rand() % ScavTrap::nOfChallenges;
+    std::cout << "SC4V-TP "<< m_Name << " challenge " << target
+              << " with " << ScavTrap::funnyChallenges[randomIndex] << std::endl;
 }
