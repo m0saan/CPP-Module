@@ -9,5 +9,6 @@
 int main(){
     ScavTrap scavTrap("Nanatsu");
     FragTrap fragTrap("KsoKabii");
+    FragTrap::actionCombustion();
     return 0;
 }

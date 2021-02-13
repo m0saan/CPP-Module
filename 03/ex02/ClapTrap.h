@@ -14,22 +14,16 @@ public:
     ~ClapTrap();
     ClapTrap(ClapTrap const &other);
     ClapTrap &operator=(ClapTrap const &other);
-    int getMHitPoints() const;
-    void setMHitPoints(int p_HitPoints);
-
-    int getMEnergyPoints() const;
-
-    void setMEnergyPoints(int p_EnergyPoints);
-
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);
-    void actionKillbot() const;
-    void actionRepulsive() const ;
-    void actionCombustion() const;
-    void actionHammer() const;
-    void actionHyperion() const;
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    void takeDamage(int amount);
+    void beRepaired(int amount);
+
+    static void actionKillbot() ;
+    static void actionRepulsive() ;
+    static void actionCombustion() ;
+    static void actionHammer() ;
+    static void actionHyperion() ;
 
 protected:
     int m_HitPoints;

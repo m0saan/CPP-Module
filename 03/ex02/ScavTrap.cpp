@@ -8,6 +8,19 @@ ScavTrap::ScavTrap() {
     std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const std::string &pName) {
+    std::cout << "ScavTrap default constructor with 1 parameter called!" << std::endl;
+    m_Name = pName;
+    m_HitPoints =  100;
+    m_MaxHitPoints = 100;
+    m_EnergyPoints = 50;
+    m_MaxEnergyPoints = 50;
+    m_Level = 1;
+    m_MeleeAttackDamage = 20;
+    m_RangedAttackDamage = 15;
+    m_ArmorDamageReduction = 3;
+}
+
 ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap destructor called" << std::endl;
 }
@@ -37,19 +50,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
         m_ArmorDamageReduction = other.m_ArmorDamageReduction;
     }
     return *this;
-}
-
-ScavTrap::ScavTrap(const std::string &pName) {
-    std::cout << "ScavTrap default constructor with 1 parameter called!" << std::endl;
-    m_Name = pName;
-    m_HitPoints =  100;
-    m_MaxHitPoints = 100;
-    m_EnergyPoints = 50;
-    m_MaxEnergyPoints = 50;
-    m_Level = 1;
-    m_MeleeAttackDamage = 20;
-    m_RangedAttackDamage = 15;
-    m_ArmorDamageReduction = 3;
 }
 
 void ScavTrap::challengeNewcomer() const {

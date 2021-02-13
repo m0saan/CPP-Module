@@ -4,7 +4,7 @@
 
 #include "FragTrap.h"
 
-typedef void (FragTrap::*CALL_MEMBER_FUNC)() const;
+typedef void (FragTrap::*CALL_MEMBER_FUNC)();
 
 FragTrap::FragTrap() {
     std::cout << "FragTrap Default constructor called" << std::endl;

@@ -50,52 +50,35 @@ void ClapTrap::meleeAttack(const std::string &target) {
     std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
 }
 
-void ClapTrap::actionKillbot() const {
+void ClapTrap::actionKillbot() {
     std::cout << "actionKillbot has been launched!"<< std::endl;
 }
 
-void ClapTrap::actionRepulsive() const {
+void ClapTrap::actionRepulsive() {
     std::cout << "actionRepulsive has been launched!" << std::endl;
 }
 
-void ClapTrap::actionCombustion() const {
+void ClapTrap::actionCombustion() {
     std::cout << "actionCombustion has been launched!" << std::endl;
 }
 
-void ClapTrap::actionHammer() const {
+void ClapTrap::actionHammer() {
     std::cout << "actionHammer has been launched!" << std::endl;
 }
 
-void ClapTrap::actionHyperion() const {
+void ClapTrap::actionHyperion() {
     std::cout << "actionHyperion has been launched!"  << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount) {
-    std::cout << "FR4G-TP " << "Hey, watch out! " << "got " << amount << " of damage."<< std::endl;
+void ClapTrap::takeDamage(int amount) {
+
+    amount = amount - m_ArmorDamageReduction;
+    std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
+    m_HitPoints = (m_HitPoints - amount > 0) ? (m_HitPoints - amount) : 0;
 }
 
-void ClapTrap::beRepaired(unsigned int amount) {
+void ClapTrap::beRepaired(int amount) {
+    amount = m_HitPoints + (int)amount > m_MaxHitPoints ? m_MaxHitPoints - m_HitPoints : m_HitPoints + amount;
+    m_HitPoints += amount;
     std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
-}
-
-int ClapTrap::getMHitPoints() const {
-    return m_HitPoints;
-}
-
-int ClapTrap::getMEnergyPoints() const {
-    return m_EnergyPoints;
-}
-
-void ClapTrap::setMHitPoints(int p_HitPoints) {
-    if (m_HitPoints + p_HitPoints <= m_MaxHitPoints)
-        m_HitPoints += p_HitPoints;
-    else
-        m_HitPoints = m_MaxHitPoints;
-}
-
-void ClapTrap::setMEnergyPoints(int p_EnergyPoints) {
-    if (m_EnergyPoints + p_EnergyPoints <= m_MaxEnergyPoints)
-        m_EnergyPoints += p_EnergyPoints;
-    else
-        m_EnergyPoints = m_MaxEnergyPoints;
 }
