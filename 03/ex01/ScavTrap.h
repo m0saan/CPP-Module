@@ -24,12 +24,6 @@ public:
     void takeDamage(int amount);
     void beRepaired(int amount);
 
-    static void actionKillbot() ;
-    static void actionRepulsive() ;
-    static void actionCombustion() ;
-    static void actionHammer() ;
-    static void actionHyperion() ;
-
     void challengeNewcomer(std::string const &target);
 
 private:

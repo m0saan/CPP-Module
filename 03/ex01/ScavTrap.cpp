@@ -68,26 +68,6 @@ void ScavTrap::meleeAttack(const std::string &target) {
     std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
 }
 
-void ScavTrap::actionKillbot() {
-    std::cout << "actionKillbot has been launched!"<< std::endl;
-}
-
-void ScavTrap::actionRepulsive() {
-    std::cout << "actionRepulsive has been launched!" << std::endl;
-}
-
-void ScavTrap::actionCombustion() {
-    std::cout << "actionCombustion has been launched!" << std::endl;
-}
-
-void ScavTrap::actionHammer() {
-    std::cout << "actionHammer has been launched!" << std::endl;
-}
-
-void ScavTrap::actionHyperion() {
-    std::cout << "actionHyperion has been launched!"  << std::endl;
-}
-
 void ScavTrap::takeDamage(int amount) {
 
     amount = amount - m_ArmorDamageReduction;
