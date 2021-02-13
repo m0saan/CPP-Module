@@ -12,42 +12,48 @@
 class FragTrap {
 
 public:
+
+    // Constructors and Destructor.
+    FragTrap();
     explicit FragTrap(std::string const &name);
     FragTrap(FragTrap const &fragTrap);
     ~FragTrap();
 
+    // Copy assignment operator.
     FragTrap &operator=(FragTrap const &fragTrap);
 
-    int getMHitPoints() const;
-    void setMHitPoints(int p_HitPoints);
+    // Create some getters and setters for fields.
+    int     getMHitPoints() const;
+    void    setMHitPoints(int p_HitPoints);
+    int     getMEnergyPoints() const;
+    void    setMEnergyPoints(int p_EnergyPoints);
 
-    int getMEnergyPoints() const;
+    // class's member functions.
+    void    rangedAttack(std::string const & target);
+    void    meleeAttack(std::string const & target);
+    void    takeDamage(int amount);
+    void    beRepaired(int amount);
 
-    void setMEnergyPoints(int p_EnergyPoints);
-
-    void rangedAttack(std::string const & target);
-    void meleeAttack(std::string const & target);
-    void actionKillbot() const;
-    void actionRepulsive() const ;
-    void actionCombustion() const;
-    void actionHammer() const;
-    void actionHyperion() const;
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    // Funny Attacks.
+    void    actionKillbot() const;
+    void    actionRepulsive() const ;
+    void    actionCombustion() const;
+    void    actionHammer() const;
+    void    actionHyperion() const;
 
     void vaulthunter_dot_exe(std::string const & target);
 
 private:
 
     std::string m_Name;
-    int m_HitPoints =100;
-    int m_MaxHitPoints = 100;
-    int m_EnergyPoints = 100;
-    int m_MaxEnergyPoints = 100;
-    int m_Level = 1;
-    int m_MeleeAttackDamage = 30;
-    int m_RangedAttackDamage   = 20;
-    int m_ArmorDamageReduction = 5;
+    int         m_HitPoints;
+    int         m_MaxHitPoints;
+    int         m_EnergyPoints;
+    int         m_MaxEnergyPoints;
+    int         m_Level;
+    int         m_MeleeAttackDamage;
+    int         m_RangedAttackDamage;
+    int         m_ArmorDamageReduction;
 };
 
 

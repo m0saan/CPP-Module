@@ -8,52 +8,31 @@ typedef void (FragTrap::*CALL_MEMBER_FUNC)() const;
 
 FragTrap::FragTrap() {
     std::cout << "FragTrap Default constructor called" << std::endl;
+    m_Name = "";
+    m_HitPoints =100;
+    m_MaxHitPoints = 100;
+    m_EnergyPoints = 100;
+    m_MaxEnergyPoints = 100;
+    m_Level = 1;
+    m_MeleeAttackDamage = 30;
+    m_RangedAttackDamage   = 20;
+    m_ArmorDamageReduction = 5;
 }
 
 FragTrap::FragTrap(const std::string &pName) : m_Name(pName) {
     std::cout << "FragTrap Default constructor called with 1 parameter" << std::endl;
+    m_HitPoints =100;
+    m_MaxHitPoints = 100;
+    m_EnergyPoints = 100;
+    m_MaxEnergyPoints = 100;
+    m_Level = 1;
+    m_MeleeAttackDamage = 30;
+    m_RangedAttackDamage   = 20;
+    m_ArmorDamageReduction = 5;
 }
 
 FragTrap::~FragTrap() {
     std::cout << "FragTrap Default destructor called" << std::endl;
-}
-
-void FragTrap::rangedAttack(const std::string &target) {
-    std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
-    std::cout << m_RangedAttackDamage << " points of damage!" << std::endl;
-}
-
-void FragTrap::meleeAttack(const std::string &target) {
-    std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
-    std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
-}
-
-void FragTrap::actionKillbot() const {
-    std::cout << "actionKillbot has been launched!"<< std::endl;
-}
-
-void FragTrap::actionRepulsive() const {
-    std::cout << "actionRepulsive has been launched!" << std::endl;
-}
-
-void FragTrap::actionCombustion() const {
-    std::cout << "actionCombustion has been launched!" << std::endl;
-}
-
-void FragTrap::actionHammer() const {
-    std::cout << "actionHammer has been launched!" << std::endl;
-}
-
-void FragTrap::actionHyperion() const {
-    std::cout << "actionHyperion has been launched!"  << std::endl;
-}
-
-void FragTrap::takeDamage(unsigned int amount) {
-    std::cout << "FR4G-TP " << "Hey, watch out! " << "got " << amount << " of damage."<< std::endl;
-}
-
-void FragTrap::beRepaired(unsigned int amount) {
-    std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &fragTrap) {
@@ -81,6 +60,49 @@ FragTrap::FragTrap(const FragTrap &fragTrap) {
     this->m_MeleeAttackDamage = fragTrap.m_MeleeAttackDamage;
     this->m_RangedAttackDamage   = fragTrap.m_RangedAttackDamage;
     this->m_ArmorDamageReduction = fragTrap.m_ArmorDamageReduction;
+}
+
+void FragTrap::rangedAttack(const std::string &target) {
+    std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
+    std::cout << m_RangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void FragTrap::meleeAttack(const std::string &target) {
+    std::cout << "FR4G-TP " << m_Name << " attacks " << target << " at range, causing ";
+    std::cout << m_MeleeAttackDamage << " points of damage!" << std::endl;
+}
+
+void FragTrap::takeDamage(int amount) {
+
+    amount = amount - m_ArmorDamageReduction;
+    std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
+    m_HitPoints = (m_HitPoints - amount > 0) ? (m_HitPoints - amount) : 0;
+}
+
+void FragTrap::beRepaired(int amount) {
+    amount = m_HitPoints + (int)amount > m_MaxHitPoints ? m_MaxHitPoints - m_HitPoints : m_HitPoints + amount;
+    m_HitPoints += amount;
+    std::cout << "FR4G-TP "  << "got " << amount << " of Sweet life juice! " << std::endl;
+}
+
+void FragTrap::actionKillbot() const {
+    std::cout << "actionKillbot has been launched!"<< std::endl;
+}
+
+void FragTrap::actionRepulsive() const {
+    std::cout << "actionRepulsive has been launched!" << std::endl;
+}
+
+void FragTrap::actionCombustion() const {
+    std::cout << "actionCombustion has been launched!" << std::endl;
+}
+
+void FragTrap::actionHammer() const {
+    std::cout << "actionHammer has been launched!" << std::endl;
+}
+
+void FragTrap::actionHyperion() const {
+    std::cout << "actionHyperion has been launched!"  << std::endl;
 }
 
 int FragTrap::getMHitPoints() const {
