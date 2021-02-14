@@ -16,9 +16,16 @@ public:
     FragTrap();
     explicit FragTrap(std::string const &name);
     FragTrap(FragTrap const &fragTrap);
-    ~FragTrap();
+    virtual ~FragTrap();
 
     FragTrap &operator=(FragTrap const &fragTrap);
+
+    static void actionKillbot() ;
+    static void actionRepulsive() ;
+    static void actionCombustion() ;
+    static void actionHammer() ;
+    static void actionHyperion() ;
+
     void vaulthunter_dot_exe(const std::string &target);
 };
 

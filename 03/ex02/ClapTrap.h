@@ -14,16 +14,10 @@ public:
     ~ClapTrap();
     ClapTrap(ClapTrap const &other);
     ClapTrap &operator=(ClapTrap const &other);
-    void rangedAttack(std::string const & target);
-    void meleeAttack(std::string const & target);
+    virtual void rangedAttack(std::string const & target);
+    virtual void meleeAttack(std::string const & target);
     void takeDamage(int amount);
     void beRepaired(int amount);
-
-    static void actionKillbot() ;
-    static void actionRepulsive() ;
-    static void actionCombustion() ;
-    static void actionHammer() ;
-    static void actionHyperion() ;
 
 protected:
     int m_HitPoints;

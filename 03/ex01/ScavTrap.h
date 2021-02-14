@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+#include <random>
 
 class ScavTrap {
 
@@ -23,13 +24,7 @@ public:
     void takeDamage(int amount);
     void beRepaired(int amount);
 
-    static void actionKillbot() ;
-    static void actionRepulsive() ;
-    static void actionCombustion() ;
-    static void actionHammer() ;
-    static void actionHyperion() ;
-
-    void challengeNewcomer() const;
+    void challengeNewcomer(std::string const &target);
 
 private:
     int m_HitPoints;
@@ -41,6 +36,8 @@ private:
     int m_MeleeAttackDamage;
     int m_RangedAttackDamage;
     int m_ArmorDamageReduction;
+    static const std::size_t nOfChallenges = 5;
+    static std::string funnyChallenges[5];
 };
 
 

@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+#include <random>
 
 #include "ClapTrap.h"
 
@@ -16,11 +17,15 @@ public:
     ScavTrap();
     explicit ScavTrap(std::string const& pName);
     ScavTrap(ScavTrap const &scavTrap);
-    ~ScavTrap();
+    virtual ~ScavTrap();
 
     ScavTrap &operator=(ScavTrap const &rhs);
 
-    void challengeNewcomer() const;
+    void challengeNewcomer(std::string const &target);
+
+private:
+    static const std::size_t nOfChallenges = 5;
+    static std::string funnyChallenges[5];
 };
 
 

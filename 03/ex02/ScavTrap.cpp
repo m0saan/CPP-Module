@@ -52,6 +52,11 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
     return *this;
 }
 
-void ScavTrap::challengeNewcomer() const {
+void ScavTrap::challengeNewcomer(std::string const &target) {
+    std::size_t randomIndex;
+    std::srand(time(nullptr));
 
+    randomIndex = std::rand() % ScavTrap::nOfChallenges;
+    std::cout << "SC4V-TP "<< m_Name << " challenge " << target
+              << " with " << ScavTrap::funnyChallenges[randomIndex] << std::endl;
 }
