@@ -5,6 +5,4 @@ set(CMAKE_CXX_STANDARD 98)
 
 include_directories(ex01)
 
-add_executable(CPP_Module 01/ex05/Brain.cpp
-        01/ex05/Human.cpp
-        01/ex05/main.cpp)
+add_executable(CPP_Module 03/ex02/ClapTrap.cpp 03/ex02/ScavTrap.cpp 03/ex02/FragTrap.cpp 03/ex02/main.cpp)
