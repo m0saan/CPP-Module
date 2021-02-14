@@ -4,7 +4,7 @@
 
 #include "FragTrap.h"
 
-typedef void (FragTrap::*CALL_MEMBER_FUNC)();
+typedef void (*CALL_MEMBER_FUNC)();
 
 FragTrap::FragTrap() {
     std::cout << "FragTrap Default constructor called" << std::endl;
@@ -72,17 +72,13 @@ void FragTrap::actionHyperion() {
 void FragTrap::vaulthunter_dot_exe(const std::string &target) {
     if (m_EnergyPoints - 25 < 0)
         std::cout << "Brrrh... you're out of energy!!" << std::endl;
-    else{
+    else {
         m_EnergyPoints -= 25;
         std::cout << "Yaaay!.. This time it'll be awesome, I promise!" << std::endl;
         std::string funcPool[] = { "actionKillbot", "actionRepulsive", "actionCombustion", "actionHammer", "actionHyperion" };
         CALL_MEMBER_FUNC actionsPool[] = { &FragTrap::actionCombustion, &FragTrap::actionHammer, &FragTrap::actionKillbot, &FragTrap::actionRepulsive, &FragTrap::actionHyperion };
-        for (int i = 0; i < 5; ++i) {
-            if (target == funcPool[i]){
-                CALL_MEMBER_FUNC func = actionsPool[i];
-                (this->*func)();
-            }
-        }
+        for (int i = 0; i < 5; ++i)
+            if (target == funcPool[i]) actionsPool[i]();
     }
 }
 
