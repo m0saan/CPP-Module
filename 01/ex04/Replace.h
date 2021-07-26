@@ -13,7 +13,7 @@
 class Replace {
 public:
 
-    Replace(std::string const & filename, std::string const & s1, std::string const & s2);
+    Replace(const std::string &filename, const std::string &s1, const std::string & s2);
     ~Replace();
     void replace();
     void processLine(std::string &line);

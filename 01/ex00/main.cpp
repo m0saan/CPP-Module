@@ -1,22 +1,19 @@
-#include "Pony.h"
+#include "Zombie.hpp"
+#include <iostream>
 
-void ponyOnTheHeap() {
-    std::cout << "A Pony instance has been created on the heap" << std::endl;
-    Pony *pony = new Pony();
-    pony->gallop();
-    pony->move();
-    delete pony;
-}
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
-void ponyOnTheStack() {
-    std::cout << "A Pony instance has been created on the stack" << std::endl;
-    Pony pony;
-    pony.move();
-    pony.gallop();
-}
+int main() 
+{
+    Zombie z1(std::string("AntonIO"));
+    z1.announce();
 
-int main(){
-    ponyOnTheHeap();
-    ponyOnTheStack();
+    Zombie *z2 = newZombie(std::string("Tumbler"));
+    
+    randomChump(std::string("Biter"));
+    
+    delete z2;
+    
     return 0;
 }

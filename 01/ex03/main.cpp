@@ -1,12 +1,28 @@
 //
-// Created by moboustt on 31/1/2021.
+// Created by moboustt on 1/2/2021.
 //
 
-#include "Zombie.h"
-#include "ZombieHorde.h"
+#include "Weapon.h"
+#include "HumanA.h"
+#include "HumanB.h"
 
-int main(){
-    ZombieHorde zombieHorde(10);
-    zombieHorde.announce();
+int main() {
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+/* 
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
+    */
     return 0;
 }

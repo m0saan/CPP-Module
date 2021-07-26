@@ -1,11 +1,24 @@
-//
-// Created by moboustt on 30/1/2021.
-//
+#include <string>
+#include <iostream>
 
-#include "Zombie.h"
-#include "ZombieEvent.h"
+int main() 
+{
+
+    // Create a string object.
+    std::string str("HI THIS IS BRAIN");
+    
+    std::string *stringPTR = &str;
+
+    std::string &stringREF = str;
+
+    // display the address in memory of the string.
+    std::cout << &str << std::endl;
+    std::cout << stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
+
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl;
 
 
-int main() {
-    return (0);
+    return 0;
 }

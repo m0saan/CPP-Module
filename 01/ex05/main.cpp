@@ -2,13 +2,11 @@
 // Created by moboustt on 31/1/2021.
 //
 
-#include "Human.h"
-#include "Brain.h"
+#include "Karen.hpp"
 
 int main() {
-    Human bob;
 
-    std::cout << bob.identify() << std::endl;
-    std::cout << bob.getBrain().identify() << std::endl;
+   Karen k;
+   k.complain(std::string("warning"));
     return 0;
 }
