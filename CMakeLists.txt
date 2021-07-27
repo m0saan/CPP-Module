@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.17)
 project(CPP_Module)
 
-set(CMAKE_CXX_STANDARD 98)
 
-include_directories(ex01)
+if (0)
+    set(CMAKE_CXX_STANDARD 98)
+    add_executable(CPP_Module 02/ex00/Fixed.cpp 02/ex00/main.cpp test.cpp)
+endif ()
 
-add_executable(CPP_Module 03/ex02/ClapTrap.cpp 03/ex02/ScavTrap.cpp 03/ex02/FragTrap.cpp 03/ex02/main.cpp)
+if (1)
+    set(CMAKE_CXX_STANDARD 11)
+    add_executable(CPP_Module test.cpp)
+endif ()

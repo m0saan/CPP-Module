@@ -31,5 +31,4 @@ protected:
     int m_ArmorDamageReduction;
 };
 
-
 #endif //CPP_MODULE_CLAPTRAP_H

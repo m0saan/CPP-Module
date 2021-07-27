@@ -1,8 +1,5 @@
 #include "Karen.hpp"
 
-typedef void (*CALL_MEMBER_FUNC)();
-
-
 Karen::Karen() 
 {
     std::cout << "Karen constructor called!" << std::endl;
