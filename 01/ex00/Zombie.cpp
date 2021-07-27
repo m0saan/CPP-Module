@@ -7,15 +7,6 @@ Zombie::Zombie() {
 
 Zombie::Zombie(std::string name): _name(name) {}
 
-Zombie::Zombie(Zombie const &other) {
-    *this = other;
-}
-
-Zombie::Zombie operator +(Zombie const &other) {
-    *this = other;
-    return *this;
-}
-
 Zombie::~Zombie() {
     std::cout << _name << " is gone!" << std::endl;
 }

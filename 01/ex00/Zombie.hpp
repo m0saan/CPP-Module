@@ -8,16 +8,14 @@ class Zombie {
 
     public:
 
-        Zombie();
-        Zombie(std::string name);
-        Zombie(Zombie const &other);
+        explicit Zombie(std::string name);
         ~Zombie();
-        Zombie operator +(Zombie const &other);
         void announce( void );
 
     private:
 
+		Zombie();
         std::string _name;
 };
 
-#endif // __ZOMBIE_H
+#endif // __ZOMBIE_H__
