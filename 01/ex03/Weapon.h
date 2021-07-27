@@ -16,7 +16,7 @@ public:
     explicit Weapon(std::string const & type);
     ~Weapon();
 
-    const std::string &getType() const;
+    std::string const &getType() const;
     void setType(const std::string &type);
 
 private:

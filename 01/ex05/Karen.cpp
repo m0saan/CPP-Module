@@ -1,7 +1,6 @@
 #include "Karen.hpp"
 
-typedef void (*CALL_MEMBER_FUNC)();
-
+typedef void (Karen::*CALL_MEMBER_FUNC)();
 
 Karen::Karen() 
 {
@@ -35,9 +34,9 @@ void Karen::error( void )
 
 void Karen::complain(std::string level)
 {
-    std::string funcPool = { std::string("debug"), std::string("info"), std::string("warning"), std::string("error") };
+    std::string funcPool[] = { std::string("debug"), std::string("info"), std::string("warning"), std::string("error") };
     CALL_MEMBER_FUNC actionsPool[] = { &Karen::debug, &Karen::info, &Karen::warning, &Karen::error };
-    for (int i = 0; i<5; ++i)
+    for (int i = 0; i<4; ++i)
         if (level == funcPool[i])
-            actionsPool[i]();
+			(this->*actionsPool[i])();
 }

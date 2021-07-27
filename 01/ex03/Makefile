@@ -1,12 +1,14 @@
 NAME=out
 CC=g++
 CFLAGS=-Wall -Wextra -Werror
+STDCPP=-std=c++98
 
-SRCS = main.cpp
+SRCS = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	@ $(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	@ $(CC) $(STDCPP) $(CFLAGS) $(SRCS) -o $(NAME) -fsanitize=address -g3
 
 run:
 	./$(NAME)

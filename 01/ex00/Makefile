@@ -9,8 +9,10 @@ all: $(NAME)
 $(NAME): $(SRCS)
 	@ $(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
+run:
+	./$(NAME)
 clean:
-	@ rm $(NAME)
+	@ rm -f $(NAME)
 
 fclean : clean
 
