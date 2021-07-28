@@ -28,18 +28,11 @@ void Replace::replace() {
     ofs.close();
 }
 
-template<typename T>
-void replace_word(std::string &line, std::string::size_type len, T itr, std::string const &s2) {
-	int i = 0;
-	while(len--)
-		line[itr++] = s2[i++];
-}
-
 void Replace::processLine(std::string &line) {
     std::string::size_type itr = line.find(s1);
     while(itr != std::string::npos) {
-        // line.replace(itr, s1.length(), s2);
-		replace_word(line, s1.length(), itr, s2);
+		line.erase(itr, s1.length());
+		line.insert(itr, s2);
         itr = line.find(s1);
     }
 }
