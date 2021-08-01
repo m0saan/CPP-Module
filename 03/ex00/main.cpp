@@ -4,10 +4,16 @@
 
 #include "ClapTrap.hpp"
 #include <iostream>
-#include <set> 
 
 int main(){
     ClapTrap clapTrap("PIVOX");
+    std::cout << clapTrap;
+
+    clapTrap.attack("Eric");
+    clapTrap.beRepaired(20);
+    clapTrap.takeDamage(8);
+
+    std::cout << clapTrap;
 
     return 0;
 }

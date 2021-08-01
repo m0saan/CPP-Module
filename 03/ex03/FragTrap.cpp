@@ -61,5 +61,5 @@ std::ostream &operator<<(std::ostream &out, FragTrap const & scavTrap) {
 }
 
 void FragTrap::highFivesGuys() {
-
+	
 }

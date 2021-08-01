@@ -14,7 +14,7 @@ ClapTrap::ClapTrap() {
 }
 
 ClapTrap::ClapTrap(const std::string &pName) : m_Name(pName) {
-    std::cout << "ClapTrap Default constructor called with 1 parameter" << std::endl;
+    std::cout << "ClapTrap constructor called" << std::endl;
 	m_HitPoints = 10;
 	m_EnergyPoints = 10;
 	m_AttackDamage = 0;
@@ -42,36 +42,37 @@ ClapTrap::ClapTrap(const ClapTrap &other) {
 }
 
 void ClapTrap::attack(const std::string &target) {
-    std::cout << "ClapTrap " << m_Name << " attacks " << target << " at range, causing ";
+    std::cout << "ClapTrap " << m_Name << " attacks " << target << " causing ";
     std::cout << m_HitPoints << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(uint32_t amount) {
 
-    if (m_EnergyPoints - amount < 0)
+    if (m_HitPoints - amount < 0)
         return ;
-    m_EnergyPoints -= amount;
+    m_HitPoints -= amount;
     std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
 }
 
 void ClapTrap::beRepaired(uint32_t amount) {
-    m_EnergyPoints += amount;
-    std::cout << "ClapTrap "  << "got " << amount << " of Sweet life juice! " << std::endl;
+    m_HitPoints += amount;
+    std::cout << "ClapTrap "  << m_Name << " got " << amount << " of Sweet life juice! " << std::endl;
 }
 
-int ClapTrap::getHitPoints() const {
-    return m_HitPoints;
+std::ostream &operator<<(std::ostream &out, ClapTrap const & clapTrap) {
+	std::cout << "Name: " << clapTrap.m_Name << " HP: " << clapTrap.m_HitPoints
+	<< " EP: " << clapTrap.m_EnergyPoints << " Attack Damage: " << clapTrap.m_AttackDamage << std::endl;
+	return out;
 }
 
-void ClapTrap::setHitPoints(int p_HitPoints) {
-    m_HitPoints += p_HitPoints;
+int ClapTrap::getMHitPoints() const {
+	return m_HitPoints;
 }
 
-int ClapTrap::getEnergyPoints() const {
-    return m_EnergyPoints;
+int ClapTrap::getMEnergyPoints() const {
+	return m_EnergyPoints;
 }
 
-void ClapTrap::setEnergyPoints(int p_EnergyPoints) {
-        m_EnergyPoints += p_EnergyPoints;
+int ClapTrap::getMAttackDamage() const {
+	return m_AttackDamage;
 }
-

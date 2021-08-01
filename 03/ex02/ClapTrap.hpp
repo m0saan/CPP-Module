@@ -27,9 +27,9 @@ public:
     void    takeDamage(uint32_t amount);
     void    beRepaired(uint32_t amount);
 
-    friend std::ostream &operator<<(std::ostream &out, ClapTrap const & clapTrap);
+	friend std::ostream &operator<<(std::ostream &out, ClapTrap const & clapTrap);
 
-		private:
+protected:
 
     std::string m_Name;
     int         m_HitPoints;
