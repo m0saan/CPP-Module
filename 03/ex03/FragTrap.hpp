@@ -9,14 +9,13 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 
 public:
 
-	FragTrap();
 	explicit FragTrap(std::string const& name);
 	FragTrap(FragTrap const &scavTrap);
-	~FragTrap();
+	virtual ~FragTrap();
 
 	FragTrap &operator=(FragTrap const &other);
 
@@ -27,6 +26,9 @@ public:
 	void    beRepaired(uint32_t amount);
 
 	void highFivesGuys(void);
+
+private:
+	FragTrap();
 };
 
 

@@ -2,8 +2,8 @@
 // Created by moboustt on 3/2/2021.
 //
 
-#ifndef FRAGTRAP_H
-#define FRAGTRAP_H
+#ifndef __CLAPTRAP_H__
+#define __CLAPTRAP_H__
 
 #include <string>
 #include <iostream>
@@ -14,18 +14,17 @@ class ClapTrap {
 public:
 
     // Constructors and Destructor.
-    ClapTrap();
     explicit ClapTrap(std::string const &name);
-    ClapTrap(ClapTrap const &fragTrap);
-    ~ClapTrap();
+    ClapTrap(ClapTrap const &other);
+    virtual ~ClapTrap();
 
     // Copy assignment operator.
     ClapTrap &operator=(ClapTrap const &other);
 
     // class's member functions.
-    void    attack(std::string const & target);
-    void    takeDamage(uint32_t amount);
-    void    beRepaired(uint32_t amount);
+    virtual void    attack(std::string const & target);
+    virtual void    takeDamage(uint32_t amount);
+    virtual void    beRepaired(uint32_t amount);
 
 	friend std::ostream &operator<<(std::ostream &out, ClapTrap const & clapTrap);
 
@@ -35,6 +34,8 @@ protected:
     int         m_HitPoints;
     int         m_EnergyPoints;
     int         m_AttackDamage;
+	ClapTrap();
+
 };
 
 #endif // __CLAPTRAP_H__

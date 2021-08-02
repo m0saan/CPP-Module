@@ -9,24 +9,26 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 public:
 
-    ScavTrap();
-    explicit ScavTrap(std::string const& name);
+	explicit ScavTrap(std::string const& name);
     ScavTrap(ScavTrap const &scavTrap);
-    ~ScavTrap();
+    virtual ~ScavTrap();
 
     ScavTrap &operator=(ScavTrap const &other);
 
 	friend std::ostream &operator<<(std::ostream &out, ScavTrap const & scavTrap);
 
-	void    attack(std::string const & target);
+	virtual void    attack(std::string const & target);
 	void    takeDamage(uint32_t amount);
 	void    beRepaired(uint32_t amount);
 
 	void guardGate();
+
+private:
+	ScavTrap();
 };
 
 

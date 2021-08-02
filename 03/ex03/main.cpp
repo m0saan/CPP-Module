@@ -2,23 +2,26 @@
 // Created by moboustt on 3/2/2021.
 //
 
-#include "FragTrap.hpp"
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
 
-	std::cout << std::endl << "------ Constructing a ScavTrap ------" << std::endl;
+	std::cout << std::endl << "------ Constructing a DiamondTrap ------" << std::endl;
+	DiamondTrap dtWiss("Wiss");
+	std::cout << std::endl << dtWiss;
+	dtWiss.whoAmI();
+	 DiamondTrap *dTrap = new DiamondTrap("Jean");
+	std::cout << std::endl << *dTrap;
+	dTrap->whoAmI();
 
-	FragTrap fragTrapJon("Jean");
-	std::cout << fragTrapJon;
+	dtWiss.attack("Mckinny");
+	dTrap->attack("Eric");
+	dtWiss.takeDamage(10);
+	dTrap->beRepaired(5);
 
-	fragTrapJon.attack("Eric");
-	fragTrapJon.beRepaired(5);
-	fragTrapJon.takeDamage(10);
+	DiamondTrap diamondTrapCopy(dtWiss);
+	std::cout << std::endl << diamondTrapCopy;
 
-	std::cout << fragTrapJon << std::endl;
-	fragTrapJon.highFivesGuys();
-
-	fragTrapJon.takeDamage(200);
+	std::cout << std::endl << "------ Destructing created objects ------" << std::endl;
     return 0;
 }

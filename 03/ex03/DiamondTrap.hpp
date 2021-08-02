@@ -11,23 +11,24 @@
 class DiamondTrap : public FragTrap, public ScavTrap {
 public:
 
-	DiamondTrap(std::string const &name);
+	explicit DiamondTrap(std::string const &name);
 	DiamondTrap(DiamondTrap const &other);
-	DiamondTrap &operator=(DiamondTrap const& other);
-	~DiamondTrap();
+	DiamondTrap &operator=(DiamondTrap & other);
+	virtual ~DiamondTrap();
 
 	friend std::ostream &operator<<(std::ostream &out, DiamondTrap const & diamondTrap);
 
 	void    attack(std::string const & target);
 	void    takeDamage(uint32_t amount);
 	void    beRepaired(uint32_t amount);
+	friend void swap(DiamondTrap& first, DiamondTrap &second);
 
 	void whoAmI();
 
 private:
 
 	DiamondTrap();
-	std::string name;
+	std::string _name;
 };
 
 

@@ -15,5 +15,14 @@ int main(){
 
     std::cout << clapTrap;
 
+    std::cout << "--------- Creating a ClapTrap copy <Using copy constructor> ---------" << std::endl;
+    ClapTrap clapTrapCopy(clapTrap);
+    std::cout << clapTrapCopy;
+
+	std::cout << "--------- Creating a ClapTrap copy <Using copy assignment operator> ---------" << std::endl;
+	ClapTrap clapTrapBiter("Biter");
+	clapTrapCopy = clapTrapBiter;
+	std::cout << clapTrapCopy;
+
     return 0;
 }

@@ -5,35 +5,35 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() {
-    std::cout << "ScavTrap Default constructor called" << std::endl;
+	std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
-	std::cout << "ScavTrap Default constructor called" << std::endl;
+	std::cout << "ScavTrap constructor called" << std::endl;
 	m_HitPoints =  100;
-    m_EnergyPoints = 50;
-    m_AttackDamage = 20;
+	m_EnergyPoints = 50;
+	m_AttackDamage = 20;
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) {
-    std::cout << "ScavTrap copy constructor called" << std::endl;
-    m_HitPoints =  other.m_HitPoints;
-    m_EnergyPoints = other.m_EnergyPoints;
-    m_AttackDamage = other.m_AttackDamage;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+	m_HitPoints =  other.m_HitPoints;
+	m_EnergyPoints = other.m_EnergyPoints;
+	m_AttackDamage = other.m_AttackDamage;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
-    if (this != &other) {
-        std::cout << "ScavTrap constructor called" << std::endl;
-        m_HitPoints =  other.m_HitPoints;
-        m_EnergyPoints = other.m_EnergyPoints;
-        m_AttackDamage = other.m_AttackDamage;
-    }
-    return *this;
+	if (this != &other) {
+		std::cout << "ScavTrap constructor called" << std::endl;
+		m_HitPoints =  other.m_HitPoints;
+		m_EnergyPoints = other.m_EnergyPoints;
+		m_AttackDamage = other.m_AttackDamage;
+	}
+	return *this;
 }
 
 void ScavTrap::attack(const std::string &target) {
@@ -46,6 +46,7 @@ void ScavTrap::takeDamage(uint32_t amount) {
 	if (m_HitPoints - amount < 0)
 		return ;
 	m_HitPoints -= amount;
+	if (m_HitPoints < 0) m_HitPoints = 0;
 	std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
 }
 
@@ -55,8 +56,8 @@ void ScavTrap::beRepaired(uint32_t amount) {
 }
 
 std::ostream &operator<<(std::ostream &out, ScavTrap const & scavTrap) {
-	std::cout << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints
-			  << " EP: " << scavTrap.m_EnergyPoints << " Attack Damage: " << scavTrap.m_AttackDamage << std::endl;
+	out << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints
+		<< " EP: " << scavTrap.m_EnergyPoints << " Attack Damage: " << scavTrap.m_AttackDamage << std::endl;
 	return out;
 }
 

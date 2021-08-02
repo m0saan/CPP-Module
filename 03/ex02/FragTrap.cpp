@@ -42,11 +42,7 @@ void FragTrap::attack(const std::string &target) {
 }
 
 void FragTrap::takeDamage(uint32_t amount) {
-
-	if (m_HitPoints - amount < 0)
-		return ;
-	m_HitPoints -= amount;
-	std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
+	ClapTrap::takeDamage(amount);
 }
 
 void FragTrap::beRepaired(uint32_t amount) {

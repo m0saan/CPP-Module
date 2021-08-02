@@ -16,7 +16,7 @@ public:
 	FragTrap();
 	explicit FragTrap(std::string const& name);
 	FragTrap(FragTrap const &scavTrap);
-	~FragTrap();
+	virtual ~FragTrap();
 
 	FragTrap &operator=(FragTrap const &other);
 

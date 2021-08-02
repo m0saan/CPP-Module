@@ -20,5 +20,6 @@ int main() {
 	fragTrapJon.highFivesGuys();
 
 	fragTrapJon.takeDamage(200);
+	std::cout << fragTrapJon;
     return 0;
 }

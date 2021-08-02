@@ -22,5 +22,16 @@ int main(){
 	scavTrap_jean.guardGate();
 
 	scavTrap_jean.takeDamage(200);
+	std::cout << scavTrap_jean;
+
+	ScavTrap scavTrapCopy(scavTrap_jean);
+	std::cout << scavTrapCopy;
+
+	std::cout << std::endl << "------ Create a reference to ScavTrap ------" << std::endl;
+	ClapTrap &clapTrapRef = scavTrap_jean;
+	clapTrapRef.beRepaired(10);
+
+	std::cout << std::endl << "------ Destructing created objects ------" << std::endl;
+
     return 0;
 }

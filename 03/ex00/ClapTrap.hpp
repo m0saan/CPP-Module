@@ -2,8 +2,8 @@
 // Created by moboustt on 3/2/2021.
 //
 
-#ifndef FRAGTRAP_H
-#define FRAGTRAP_H
+#ifndef __CLAPTRAP_H__
+#define __CLAPTRAP_H__
 
 #include <string>
 #include <iostream>

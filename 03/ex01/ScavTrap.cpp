@@ -19,7 +19,7 @@ ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) {
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other){
     std::cout << "ScavTrap copy constructor called" << std::endl;
     m_HitPoints =  other.m_HitPoints;
     m_EnergyPoints = other.m_EnergyPoints;
@@ -42,11 +42,7 @@ void ScavTrap::attack(const std::string &target) {
 }
 
 void ScavTrap::takeDamage(uint32_t amount) {
-
-	if (m_HitPoints - amount < 0)
-		return ;
-	m_HitPoints -= amount;
-	std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
+	ClapTrap::takeDamage(amount);
 }
 
 void ScavTrap::beRepaired(uint32_t amount) {
@@ -61,6 +57,5 @@ std::ostream &operator<<(std::ostream &out, ScavTrap const & scavTrap) {
 }
 
 void ScavTrap::guardGate() {
-
 	std::cout << "Yayyy!! ScavTrap have entered in Gate keeper mode." << std::endl;
 }

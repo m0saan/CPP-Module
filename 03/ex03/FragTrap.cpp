@@ -9,7 +9,7 @@ FragTrap::FragTrap() {
 }
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
-	std::cout << "FragTrap Default constructor called" << std::endl;
+	std::cout << "FragTrap constructor called" << std::endl;
 	m_HitPoints =  100;
 	m_EnergyPoints = 100;
 	m_AttackDamage = 30;
@@ -55,7 +55,7 @@ void FragTrap::beRepaired(uint32_t amount) {
 }
 
 std::ostream &operator<<(std::ostream &out, FragTrap const & scavTrap) {
-	std::cout << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints
+	out << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints
 			  << " EP: " << scavTrap.m_EnergyPoints << " Attack Damage: " << scavTrap.m_AttackDamage << std::endl;
 	return out;
 }
