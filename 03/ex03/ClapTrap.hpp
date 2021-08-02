@@ -22,9 +22,9 @@ public:
 	ClapTrap &operator=(ClapTrap const &other);
 
 	// class's member functions.
-	void    attack(std::string const & target);
-	void    takeDamage(uint32_t amount);
-	void    beRepaired(uint32_t amount);
+	virtual void    attack(std::string const & target);
+	virtual void    takeDamage(uint32_t amount);
+	virtual void    beRepaired(uint32_t amount);
 
 	friend std::ostream &operator<<(std::ostream &out, ClapTrap const & clapTrap);
 
