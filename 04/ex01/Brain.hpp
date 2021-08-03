@@ -17,7 +17,10 @@ public:
 	Brain(const Brain& other);
 	Brain& operator=(const Brain& other);
 
-private:
+	void setIdeas();
+	friend std::ostream& operator<<(std::ostream& out, const Brain &brain);
+
+protected:
 	std::string _ideas[100];
 };
 

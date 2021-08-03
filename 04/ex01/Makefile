@@ -7,7 +7,7 @@ SRCS = Animal.cpp Cat.cpp Dog.cpp Brain.cpp main.cpp
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	@ $(CC) $(CPP_VERSION) $(CFLAGS) $(SRCS) -o $(NAME)
+	@ $(CC) $(CPP_VERSION) $(CFLAGS) $(SRCS) -o $(NAME) -g3 -fsanitize=address
 
 run:
 	./$(NAME)

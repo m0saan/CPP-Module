@@ -20,6 +20,8 @@ public:
 	virtual void makeSound() const;
 	virtual const std::string& getType() const;
 
+	const Brain& getBrain() const;
+
 private:
 
 	Brain *_brain;
