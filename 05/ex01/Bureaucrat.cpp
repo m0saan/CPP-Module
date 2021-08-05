@@ -3,52 +3,43 @@
 //
 
 #include "Bureaucrat.hpp"
-#include "../ex01/Bureaucrat.hpp"
+#include "Form.hpp"
 
+Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::Bureaucrat() { }
-
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade) {
-	try {
-		if (grade <= 0)
-			throw GradeTooHighException("Grade to high.");
-		else if (grade > 150)
-			throw GradeTooLowException("Grade too low.");
-	}
-	catch (const std::exception& e) {
-		std::cout << RED << "exception caught: " << e.what() << RESET << std::endl;
-	}
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade) {
+	if(grade <= 0)
+		throw GradeTooHighException("Grade to high.");
+	else if(grade > 150)
+		throw GradeTooLowException("Grade too low.");
 }
 
-Bureaucrat::~Bureaucrat() { }
+Bureaucrat::~Bureaucrat() {}
 
 const std::string &Bureaucrat::getName() const { return _name; }
 
 int Bureaucrat::getGrade() const { return _grade; }
 
 void Bureaucrat::incrementGrade() {
-	try {
-		--_grade;
-		if (_grade <= 0)
-			throw GradeTooHighException("Grade too high.");
-	} catch (const std::exception& e){
-		std::cout << RED << "exception caught: " << e.what() << RESET << std::endl;
-	}
+	--_grade;
+	if(_grade <= 0)
+		throw GradeTooHighException("Grade too high.");
 }
 
 void Bureaucrat::decrementGrade() {
-	try {
-		++_grade;
-		if (_grade > 150)
-			throw GradeTooLowException("Grade too low.");
-	} catch (const std::exception& e){
-		std::cout << RED << "exception caught: " << e.what() << RESET << std::endl;
-	}
+	++_grade;
+	if(_grade > 150)
+		throw GradeTooLowException("Grade too low.");
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
-	out << "name: "<< bureaucrat.getName() << " bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
+	out << "name: " << bureaucrat.getName() << " bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
 	return out;
+}
+
+void Bureaucrat::signForm(const Form &form) {
+	if(form.isIsSigned())
+		std::cout << _name << "signs " << form << std::endl;
 }
 
 

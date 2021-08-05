@@ -15,6 +15,8 @@
 # define YELLOW "\e[1;33m"
 # define RESET "\e[0m"
 
+class Form;
+
 class Bureaucrat {
 
 public:
@@ -56,7 +58,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 
-
+	void signForm(const Form& form);
 
 private:
 
