@@ -12,6 +12,7 @@ This repository contains the solutions for C++ POOL Modules.
   * C++ - Module 03 : Inheritance.
   * C++ - Module 04 : Subtype polymorphism, abstract classes, interfaces.  
   * C++ - Module 05 : Repetition and Exceptions.
+  * C++ - Module 06 : C++ Casts.
 
 ### - Observations : 
 
