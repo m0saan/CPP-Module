@@ -10,7 +10,8 @@ This repository contains the solutions for C++ POOL Modules.
   * C++ - Module 01 : Memory allocation, References, Pointers to members, File streams.
   * C++ - Module 02 : RUNTIME POLYMORPHISM, operators overloading and canonical classes.
   * C++ - Module 03 : Inheritance.
-  * C++ - Module 04 : Subtype polymorphism, abstract classes, interfaces. 
+  * C++ - Module 04 : Subtype polymorphism, abstract classes, interfaces.  
+  * C++ - Module 05 : Repetition and Exceptions.
 
 ### - Observations : 
 
