@@ -2,7 +2,16 @@
 // Created by moboustt on 6/8/2021.
 //
 
-#ifndef CPP_MODULE_ITER_HPP
-#define CPP_MODULE_ITER_HPP
+#ifndef __ITER_HPP__
+#define __ITER_HPP__
 
-#endif //CPP_MODULE_ITER_HPP
+#include <iostream>
+
+template<typename ARR, typename FUNC>
+void Iter(ARR arr, int length, FUNC fn) {
+	for(int i = 0; i < length; ++i)
+		fn(arr[i]);
+}
+
+
+#endif // __ITER_HPP__
