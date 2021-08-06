@@ -1,0 +1,7 @@
+./output
+a = 2, b = 3
+min( a, b ) = 2
+max( a, b ) = 3
+c = chaine1, d = chaine2
+min( c, d ) = chaine1
+max( c, d ) = chaine2
