@@ -32,9 +32,13 @@ bool Scalar::checkInput() {
 		if(_input[i] != '.' && !isdigit(_input[i]) && _input[i] != 'f')
 			exit_error("conversion is impossible.", EXIT_FAILURE);
 	}
+	try {
 	long long ll = std::stoll(_input);
 	if (ll > std::numeric_limits<int64_t>::max() || ll < std::numeric_limits<int64_t>::min())
 		exit_error("conversion is impossible.", EXIT_FAILURE);
+	} catch (std::exception &e) {
+		//std::cout << "conversion is impossible." << std::endl;
+	}
 	return false;
 }
 
