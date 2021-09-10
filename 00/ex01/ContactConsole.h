@@ -2,8 +2,8 @@
 // Created by moboustt on 30/1/2021.
 //
 
-#ifndef CPP_MODULE_CONTACTCONSOLE_H
-#define CPP_MODULE_CONTACTCONSOLE_H
+#ifndef __CONTACTCONSOLE_H__
+#define __CONTACTCONSOLE_H__
 
 #include <string>
 #include <iostream>
@@ -29,4 +29,4 @@ private:
 };
 
 
-#endif //CPP_MODULE_CONTACTCONSOLE_H
+#endif // __CONTACTCONSOLE_H__

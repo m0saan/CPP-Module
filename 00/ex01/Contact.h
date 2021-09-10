@@ -9,19 +9,15 @@
 
 class Contact {
 public:
-    std::string infos[11];
-    static std::string fields[11];
+    std::string infos[5];
+
+    static std::string fields[5];
+
     enum Field {
         FirstName = 0,
         LastName,
         Nickname,
-        Login,
-        Address,
-        Email,
         Phone,
-        Birthday,
-        FavoriteMeal,
-        UnderwearColor,
         Secret
     };
 };

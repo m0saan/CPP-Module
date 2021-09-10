@@ -4,16 +4,10 @@
 
 #include "Contact.h"
 
-std::string Contact::fields[11] = {
+std::string Contact::fields[5] = {
     "First Name",
     "Last Name",
     "Nickname",
-    "Login",
-    "Postal Address",
-    "Email Address",
     "Phone Number",
-    "Birthday Date",
-    "Favorite Meal",
-    "Underwear Color",
     "Darkest Secret"
 };
