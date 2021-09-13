@@ -2,12 +2,32 @@
 // Created by moboustt on 2/2/2021.
 //
 
-#include "Fixed.h"
+#include "Fixed.hpp"
+
+/* Notes:
+ 	 shifting the bit pattern of a number to the right by 1 bit
+	 always divide the number by 2
+
+	 shifting the bit pattern of a number to the left by 1 bit
+	 always multiplies the number by 2
+*/
+
+
 #define FIXED_POINT_ONE (1 << 8)
 
 
 Fixed::Fixed() : fixedPointValue(0) {
     std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int x) {
+	std::cout << "Int constructor called" << std::endl;
+	fixedPointValue = (x << NUM_FRAC_BITS);
+}
+
+Fixed::Fixed(const float f)  {
+	std::cout << "Float constructor called" << std::endl;
+	fixedPointValue = std::roundf(f * FIXED_POINT_ONE);
 }
 
 Fixed::~Fixed() {
@@ -18,8 +38,8 @@ int Fixed::getRawBits() const {
     return fixedPointValue;
 }
 
-void Fixed::setRawBits(int const fixedPointValue) {
-    this->fixedPointValue = fixedPointValue;
+void Fixed::setRawBits(int const raw) {
+    fixedPointValue = raw;
 }
 
 Fixed::Fixed(Fixed const &other) {
@@ -32,16 +52,6 @@ Fixed &Fixed::operator=(const Fixed &other) {
     if (this != &other)
         this->fixedPointValue = other.getRawBits();
     return *this;
-}
-
-Fixed::Fixed(const int x) {
-    std::cout << "Int constructor called" << std::endl;
-    fixedPointValue = (x << Fixed::NUM_FRAC_BITS);
-}
-
-Fixed::Fixed(const float f)  {
-    std::cout << "Float constructor called" << std::endl;
-    fixedPointValue = std::roundf(f * FIXED_POINT_ONE);
 }
 
 float Fixed::toFloat() const {

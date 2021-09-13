@@ -16,7 +16,7 @@ public:
     Fixed & operator=(const Fixed &other);
 
     int getRawBits() const;
-    void setRawBits(int fixedPointValue);
+    void setRawBits(int raw);
 
 private:
     int fixedPointValue;
@@ -24,4 +24,4 @@ private:
 };
 
 
-#endif // CPP_MODULE_FIXED_H
+#endif // __FIXED_H__

@@ -2,7 +2,6 @@
 // Created by moboustt on 2/2/2021.
 //
 
-#pragma once
 #ifndef __FIXED_H__
 #define __FIXED_H__
 

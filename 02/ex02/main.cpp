@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "Fixed.h"
+#include "Fixed.hpp"
 
 int main(){
     Fixed a;
@@ -18,6 +18,17 @@ int main(){
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::min( a, b ) << std::endl;
+
+	std::cout << std::boolalpha;
+	std::cout << b << " > " << L << ": " << (b > L) << std::endl;
+	std::cout << b << " == " << L << ": " << (b == L) << std::endl;
+
+	std::cout << (b + 10) << std::endl;
+	std::cout << (b / 2) << std::endl;
+
+
+
     return 0;
 }
 
