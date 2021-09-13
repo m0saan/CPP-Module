@@ -4,7 +4,7 @@ typedef void (Karen::*CALL_MEMBER_FUNC)();
 
 Karen::Karen() 
 {
-    std::cout << "Karen constructor called!" << std::endl;
+    std::cout << "Karen is born!" << std::endl;
 }
 
 Karen::~Karen()

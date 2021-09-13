@@ -1,5 +1,5 @@
-NAME=karen
-CC=g++
+NAME=karenFilter
+CC=clang++
 CFLAGS=-Wall -Wextra -Werror
 STDCPP=-std=c++98
 

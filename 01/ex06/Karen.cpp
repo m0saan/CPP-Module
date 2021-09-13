@@ -1,14 +1,8 @@
 #include "Karen.hpp"
 
-Karen::Karen() 
-{
-    std::cout << "Karen constructor called!" << std::endl;
-}
+Karen::Karen() {}
 
-Karen::~Karen()
-{
-    std::cout << "Karen is gone!" << std::endl;
-}
+Karen::~Karen() {}
 
 void Karen::debug( void )
 {
@@ -33,7 +27,7 @@ void Karen::error( void )
 int  getLevel(std::string const &l)
 {
     int const N_OF_LEVELS = 4;
-    std::string const pool[] = { "debug", "info", "warning", "error" };
+    std::string const pool[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
     for (int i = 0; i<N_OF_LEVELS; ++i)
         if (pool[i] == l)
             return i;

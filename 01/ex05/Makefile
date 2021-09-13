@@ -1,5 +1,5 @@
 NAME=karen
-CC=g++
+CC=clang++
 CFLAGS=-Wall -Wextra -Werror
 STDCPP=-std=c++98
 
