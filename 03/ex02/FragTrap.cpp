@@ -41,15 +41,6 @@ void FragTrap::attack(const std::string &target) {
 	std::cout << m_HitPoints << " points of damage!" << std::endl;
 }
 
-void FragTrap::takeDamage(uint32_t amount) {
-	ClapTrap::takeDamage(amount);
-}
-
-void FragTrap::beRepaired(uint32_t amount) {
-	m_HitPoints += amount;
-	std::cout << "FragTrap "  << m_Name << " got " << amount << " of Sweet life juice! " << std::endl;
-}
-
 std::ostream &operator<<(std::ostream &out, FragTrap const & scavTrap) {
 	std::cout << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints
 			  << " EP: " << scavTrap.m_EnergyPoints << " Attack Damage: " << scavTrap.m_AttackDamage << std::endl;
@@ -57,5 +48,17 @@ std::ostream &operator<<(std::ostream &out, FragTrap const & scavTrap) {
 }
 
 void FragTrap::highFivesGuys() {
+	std::cout << "\033[1;32m";
 
+	std::cout << "   _.-._" << std::endl;
+	std::cout << "  | | | |_ " << std::endl;
+	std::cout << "  | | | | | " << std::endl;
+	std::cout << "  | | | | | " << std::endl;
+	std::cout << "_ |  '-._ | " << std::endl;
+	std::cout << "\\`\\`-.'-._; " << std::endl;
+	std::cout << " \\    '   | " << std::endl;
+	std::cout << "  \\  .`  / " << std::endl;
+	std::cout << "   |    | " << std::endl;
+
+	std::cout << "\033[0m";
 }

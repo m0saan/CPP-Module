@@ -20,7 +20,7 @@ public:
     Fixed & operator=(const Fixed &other);
 
     int getRawBits() const;
-    void setRawBits(int fixedPointValue);
+    void setRawBits(int raw);
 
     float toFloat() const;
     int toInt() const;
@@ -32,4 +32,4 @@ private:
 
 std::ostream &operator<<(std::ostream &ostream, Fixed const &fixed);
 
-#endif //CPP_MODULE_FIXED_H
+#endif // __FIXED_H__

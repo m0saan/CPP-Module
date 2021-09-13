@@ -41,20 +41,6 @@ void ScavTrap::attack(const std::string &target) {
 	std::cout << m_HitPoints << " points of damage!" << std::endl;
 }
 
-void ScavTrap::takeDamage(uint32_t amount) {
-
-	if (m_HitPoints - amount < 0)
-		return ;
-	m_HitPoints -= amount;
-	if (m_HitPoints < 0) m_HitPoints = 0;
-	std::cout << "<" << m_Name << "> * takes damage for "<< amount << " hit points *" << std::endl;
-}
-
-void ScavTrap::beRepaired(uint32_t amount) {
-	m_HitPoints += amount;
-	std::cout << "ScavTrap "  << m_Name << " got " << amount << " of Sweet life juice! " << std::endl;
-}
-
 std::ostream &operator<<(std::ostream &out, ScavTrap const & scavTrap) {
 	out << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints
 		<< " EP: " << scavTrap.m_EnergyPoints << " Attack Damage: " << scavTrap.m_AttackDamage << std::endl;

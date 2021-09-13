@@ -22,8 +22,6 @@ public:
 	friend std::ostream &operator<<(std::ostream &out, ScavTrap const & scavTrap);
 
 	virtual void    attack(std::string const & target);
-	void    takeDamage(uint32_t amount);
-	void    beRepaired(uint32_t amount);
 
 	void guardGate();
 

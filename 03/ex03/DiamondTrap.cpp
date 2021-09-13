@@ -5,9 +5,9 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _name(name) {
-	m_HitPoints = FragTrap::m_HitPoints;
-	m_EnergyPoints = ScavTrap::m_EnergyPoints;
-	m_AttackDamage = FragTrap::m_AttackDamage;
+	m_HitPoints = 100;
+	m_EnergyPoints = 50;
+	m_AttackDamage = 30;
 	std::cout << "DiamondTrap constructor called." << std::endl;
 }
 
@@ -44,13 +44,5 @@ std::ostream &operator<<(std::ostream &out, const DiamondTrap &diamondTrap) {
 	out << "Name: " << diamondTrap._name << " HP: " << diamondTrap.m_HitPoints
 			  << " EP: " << diamondTrap.m_EnergyPoints << " Attack Damage: " << diamondTrap.m_AttackDamage << std::endl;
 	return out;
-}
-
-void DiamondTrap::takeDamage(uint32_t amount) {
-	FragTrap::takeDamage(amount);
-}
-
-void DiamondTrap::beRepaired(uint32_t amount) {
-	FragTrap::beRepaired(amount);
 }
 

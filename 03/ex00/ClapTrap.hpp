@@ -13,28 +13,34 @@ class ClapTrap {
 
 public:
 
-    // Constructors and Destructor.
-    ClapTrap();
-    explicit ClapTrap(std::string const &name);
-    ClapTrap(ClapTrap const &fragTrap);
-    ~ClapTrap();
+	// Constructors and Destructor.
+	ClapTrap();
 
-    // Copy assignment operator.
-    ClapTrap &operator=(ClapTrap const &other);
+	explicit ClapTrap(std::string const &name);
 
-    // class's member functions.
-    void    attack(std::string const & target);
-    void    takeDamage(uint32_t amount);
-    void    beRepaired(uint32_t amount);
+	ClapTrap(ClapTrap const &clapTrap);
 
-    friend std::ostream &operator<<(std::ostream &out, ClapTrap const & clapTrap);
+	~ClapTrap();
 
-		private:
+	// Copy assignment operator.
+	ClapTrap &operator=(ClapTrap const &other);
 
-    std::string m_Name;
-    int         m_HitPoints;
-    int         m_EnergyPoints;
-    int         m_AttackDamage;
+	// class's member functions.
+	void attack(std::string const &target);
+
+	void takeDamage(uint32_t amount);
+
+	void beRepaired(uint32_t amount);
+
+	friend std::ostream &operator<<(std::ostream &out, ClapTrap const &clapTrap);
+
+private:
+
+	std::string m_Name;
+	int m_HitPoints;
+	int m_EnergyPoints;
+	int m_AttackDamage;
 };
+
 
 #endif // __CLAPTRAP_H__

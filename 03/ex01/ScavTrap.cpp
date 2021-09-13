@@ -19,7 +19,7 @@ ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other){
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
     std::cout << "ScavTrap copy constructor called" << std::endl;
     m_HitPoints =  other.m_HitPoints;
     m_EnergyPoints = other.m_EnergyPoints;
@@ -41,14 +41,6 @@ void ScavTrap::attack(const std::string &target) {
 	std::cout << m_HitPoints << " points of damage!" << std::endl;
 }
 
-void ScavTrap::takeDamage(uint32_t amount) {
-	ClapTrap::takeDamage(amount);
-}
-
-void ScavTrap::beRepaired(uint32_t amount) {
-	m_HitPoints += amount;
-	std::cout << "ScavTrap "  << m_Name << " got " << amount << " of Sweet life juice! " << std::endl;
-}
 
 std::ostream &operator<<(std::ostream &out, ScavTrap const & scavTrap) {
 	std::cout << "Name: " << scavTrap.m_Name << " HP: " << scavTrap.m_HitPoints

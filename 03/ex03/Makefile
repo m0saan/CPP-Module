@@ -1,6 +1,6 @@
 NAME=a.out
 CC=g++
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -Wshadow -Wno-shadow
 CPP_VERSION=-std=c++98
 SRCS = ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp main.cpp
 

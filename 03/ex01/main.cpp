@@ -9,7 +9,7 @@ int main(){
 	ClapTrap clapTrap_belly("Belly");
 	std::cout << clapTrap_belly;
 
-	std::cout << std::endl << "------ Constructing a ScavTrap ------" << std::endl;
+	std::cout << std::endl << "*------ Constructing a ScavTrap ------*" << std::endl;
 
 	ScavTrap scavTrap_jean("Jean");
 	std::cout << scavTrap_jean;
@@ -24,14 +24,16 @@ int main(){
 	scavTrap_jean.takeDamage(200);
 	std::cout << scavTrap_jean;
 
+	std::cout << std::endl << "*------ Constructing a ScavTrap from another Scavtrap ------*" << std::endl;
+
 	ScavTrap scavTrapCopy(scavTrap_jean);
 	std::cout << scavTrapCopy;
 
-	std::cout << std::endl << "------ Create a reference to ScavTrap ------" << std::endl;
+	std::cout << std::endl << "*------ Create a reference to ScavTrap ------*" << std::endl;
 	ClapTrap &clapTrapRef = scavTrap_jean;
 	clapTrapRef.beRepaired(10);
 
-	std::cout << std::endl << "------ Destructing created objects ------" << std::endl;
+	std::cout << std::endl << "*------ Destructing created objects ------*" << std::endl;
 
     return 0;
 }

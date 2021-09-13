@@ -19,8 +19,6 @@ public:
 	friend std::ostream &operator<<(std::ostream &out, DiamondTrap const & diamondTrap);
 
 	void    attack(std::string const & target);
-	void    takeDamage(uint32_t amount);
-	void    beRepaired(uint32_t amount);
 	friend void swap(DiamondTrap& first, DiamondTrap &second);
 
 	void whoAmI();

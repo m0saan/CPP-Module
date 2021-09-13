@@ -19,7 +19,7 @@ public:
     Fixed & operator=(const Fixed &other);
 
     int getRawBits() const;
-    void setRawBits(int fixedPointValue);
+    void setRawBits(int raw);
 
     float toFloat() const;
     int toInt() const;

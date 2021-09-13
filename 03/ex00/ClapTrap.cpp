@@ -37,10 +37,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const & other) {
 
 ClapTrap::ClapTrap(const ClapTrap &other) {
 	std::cout << "ClapTrap copy constructor." << std::endl;
-	this->m_Name = other.m_Name;
-	this->m_HitPoints = other.m_HitPoints;
-	this->m_EnergyPoints = other.m_EnergyPoints;
-	this->m_AttackDamage = other.m_AttackDamage;
+	*this = other;
 }
 
 void ClapTrap::attack(const std::string &target) {
