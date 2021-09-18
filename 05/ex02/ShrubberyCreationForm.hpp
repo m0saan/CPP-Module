@@ -19,10 +19,6 @@ public:
 	virtual ~ShrubberyCreationForm();
 
 	void execute(const Bureaucrat &executor) const;
-
-
-private:
-	std::string _target;
 };
 
 
