@@ -48,14 +48,11 @@ Form::Form(const Form &other) :
 }
 
 Form &Form::operator=(const Form &other) {
-	if(this != &other) {
-		_name = other._name;
-		_isSigned = other._isSigned;
-	}
+	_isSigned = other._isSigned;
 	return *this;
 }
 
-std::ostream& operator<<(std::ostream& out, const Form& form){
+std::ostream &operator<<(std::ostream &out, const Form &form) {
 	out << "name: " << form.getName() << std::endl;
 	out << "is signed: " << form.isIsSigned() << std::endl;
 	out << "grade to exec: " << form.getGradeToExec() << std::endl;

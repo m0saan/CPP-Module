@@ -60,6 +60,8 @@ public:
 
 	void signForm(const Form& form);
 
+	void executeForm(Form const & form);
+
 private:
 
 	const std::string _name;

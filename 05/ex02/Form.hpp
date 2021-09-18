@@ -23,6 +23,8 @@ public:
 	// Other member functions
 	void beSigned(const Bureaucrat& bureaucrat);
 
+	virtual void execute(Bureaucrat const & executor) const = 0;
+
 
 	// Getters and Setters
 	const std::string &getName() const;
@@ -33,7 +35,7 @@ public:
 
 private:
 
-	std::string _name;
+	const std::string _name;
 	bool 		_isSigned;
 	const int	_gradeToExec;
 	const int	_gradeToSign;
