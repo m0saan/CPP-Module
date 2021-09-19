@@ -2,7 +2,7 @@ NAME=bureaucrat
 CC=g++
 CFLAGS=-Wall -Wextra -Werror
 CPP_VERSION=-std=c++98
-SRCS = Bureaucrat.cpp Form.cpp main.cpp
+SRCS = Bureaucrat.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp Form.cpp RobotomyRequestForm.cpp main.cpp
 
 
 all: $(NAME)
