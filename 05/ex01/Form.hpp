@@ -14,34 +14,39 @@ public:
 
 	// Constructors and Destructor
 	Form(const std::string &name, int gradeToExec, int gradeToSign);
-	Form(const Form& other);
+
+	Form(const Form &other);
+
 	~Form();
 
 	// Overloaded operators.
-	Form& operator=(const Form& other);
+	Form &operator=(const Form &other);
 
 	// Other member functions
-	void beSigned(const Bureaucrat& bureaucrat);
+	void beSigned(const Bureaucrat &bureaucrat);
 
 
-	// Getters and Setters
+	// Getters
 	const std::string &getName() const;
+
 	bool isIsSigned() const;
+
 	int getGradeToSign() const;
+
 	int getGradeToExec() const;
 
 
 private:
 
-	std::string _name;
-	bool 		_isSigned;
-	const int	_gradeToExec;
-	const int	_gradeToSign;
+	const std::string _name;
+	bool _isSigned;
+	const int _gradeToExec;
+	const int _gradeToSign;
 
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& form);
+std::ostream &operator<<(std::ostream &out, const Form &form);
 
 
 #endif // __FORM_HPP__

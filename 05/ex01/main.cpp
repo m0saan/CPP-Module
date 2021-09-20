@@ -22,4 +22,8 @@ int main(void)
 	} catch (std::exception &e) {
 		std::cout << RED << "Exception caught: "<< e.what() << RESET <<std::endl;
 	}
+
+	Bureaucrat b2("haha", 1);
+	ff.beSigned(b2);
+	b2.signForm(ff);
 }

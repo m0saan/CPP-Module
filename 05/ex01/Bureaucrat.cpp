@@ -39,7 +39,9 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 
 void Bureaucrat::signForm(const Form &form) {
 	if(form.isIsSigned())
-		std::cout << _name << "signs " << form << std::endl;
+		std::cout << _name << " signs " << form << std::endl;
+	else
+		std::cout << "bureaucrat " << _name<< " cannot sign "<< form << " because it is not eligible." << std::endl;
 }
 
 
