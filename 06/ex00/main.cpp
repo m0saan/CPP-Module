@@ -5,61 +5,48 @@
 #include "Scalar.hpp"
 
 int exit_error(std::string const &error, int exit_code) {
-	std::cout << error << std::endl;
-	exit(exit_code);
+    std::cout << error << std::endl;
+    exit(exit_code);
 }
 
 bool AreSame(double a, double b) {
-	return fabs(a - b) < std::numeric_limits<double>::epsilon();
+    return fabs(a - b) < std::numeric_limits<double>::epsilon();
 }
 
 int main(int ac, char **av) {
-	// try {
-	// 	std::string input(av[1]);
-	// 	float f = std::stof(input);
-	// 	std::cout << f << std::endl;
-	// } catch (std::exception const &e) {
-	// 	std::cout << e.what() << std::endl;
-	// }
+
 #if(1)
-	char c;
-	int i;
-	float f;
-	double d;
+    char c;
+    int i;
+    float f;
+    double d;
 
-	if(ac == 2) {
-		std::string input(av[1]);
-		Scalar s(input);
-		if(!s.checkInput()) {
-			try {
-				f = std::stof(input);
-				i = std::stoi(input);
-				d = static_cast<double>(f);
-				c = static_cast<char>(i);
+    if (ac == 2) {
+        std::string input(av[1]);
+        Scalar s(input);
+        if (!s.checkInput()) {
+            try {
+                f = std::stof(input);
+                i = std::stoi(input);
+                d = static_cast<double>(f);
+                c = static_cast<char>(i);
 
-				if(AreSame(f, i))
-					OutPut(c, i, f, d, true);
-				else
-					OutPut(c, i, f, d, false);
+                if (i < 32 || i > 127)
+                    c = 0;
+                if (AreSame(f, i))
+                    OutPut(c, i, f, d, true, false);
+                else
+                    OutPut(c, i, f, d, false, false);
 
-			} catch (std::exception &e) {
-				std::cout << "conversion is impossible." << std::endl;
-			}
-		}
-	} else
-		std::cout << "Error: arguments." << std::endl;
+            } catch (std::exception &e) {
+                std::cout << "char: impossible." << std::endl;
+                std::cout << "int: impossible." << std::endl;
+                d = static_cast<double>(f);
+                OutPut(-1, -1, f, d, false, true);
+            }
+        }
+    } else
+        std::cout << "Error: arguments." << std::endl;
 #endif
-	return 0;
+    return 0;
 }
-
-/*
- * 		if(s.isFloat())
-			std::cout << "FLOAT" << std::endl;
-		else if(s.isDouble())
-			std::cout << "DOUBLE" << std::endl;
-		else if(s.isZero())
-			std::cout << "ZERO" << std::endl;
-		else if(s.isInt())
-			std::cout << "INT" << std::endl;
-
- */

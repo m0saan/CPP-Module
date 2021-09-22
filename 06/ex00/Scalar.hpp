@@ -14,23 +14,24 @@
 
 class Scalar {
 public:
-	explicit Scalar(const std::string& input);
-	~Scalar();
+    explicit Scalar(const std::string &input);
 
-	void parseInput();
-	bool checkInput();
+    ~Scalar();
 
-	bool isZero();
-	bool isInt();
-	bool isFloat();
-	bool isDouble();
+    void parseInput();
+
+    bool checkInput();
+
+    bool isZero();
+
+    bool isInt();
+
+    bool isFloat();
+
+    bool isDouble();
 
 private:
-	std::string _input;
-	char	_chLiteral;
-	int		_intLiteral;
-	float	_floatLiteral;
-	double	_doubleLiteral;
+    std::string _input;
 };
 
 int exit_error(std::string const &error, int exit_code);

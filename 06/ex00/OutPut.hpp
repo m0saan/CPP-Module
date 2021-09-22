@@ -18,7 +18,7 @@
 class OutPut {
 public:
 	OutPut(const std::string& chOut, const std::string& intOut, const std::string& floatOut, const std::string& doubleOut);
-	OutPut(char chOut, int intOut, float floatOut, double doubleOut, bool add_0);
+	OutPut(char chOut, int intOut, float floatOut, double doubleOut, bool add_0, bool no_conv);
 };
 
 

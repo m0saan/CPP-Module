@@ -1,9 +1,9 @@
 NAME=output
-CC=g++
+CC=clang++
 CFLAGS=-Wall -Wextra -Werror
 STDCPP=-std=c++98
 
-SRCS = Base.cpp main.cpp
+SRCS = main.cpp
 
 all: $(NAME)
 
