@@ -4,6 +4,8 @@
 
 #include "Span.hpp"
 
+
+#if 0
 int main()
 {
 	Span sp = Span(5);
@@ -37,4 +39,33 @@ int main()
 		sp3.addNumber(i);
 	std::cout << sp3.shortestSpan() << std::endl;
 	std::cout << sp3.longestSpan() << std::endl;
+}
+
+#endif
+
+int main()
+{
+	try
+	{
+		Span sp = Span(100000);
+		std::vector<int> v;
+		// sp.addNumber(5);
+		// sp.addNumber(3);
+		// sp.addNumber(17);
+		// sp.addNumber(18);
+		// sp.addNumber(11);
+		// sp.addNumber(2147483647);
+		// sp.addNumber(-2147483648);
+		// sp.addNumber(20);
+		for (size_t i = 1; i <= 100000; i++)
+			v.push_back(i);
+		sp.addNumber(v.begin(), v.end());
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return 0;
 }

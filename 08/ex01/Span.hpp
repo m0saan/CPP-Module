@@ -13,11 +13,23 @@ class Span {
 public:
 
 	explicit Span(std::size_t N);
+
 	~Span();
-	Span(const Span& other);
-	Span& operator=(const Span& other);
+
+	Span(const Span &other);
+
+	Span &operator=(const Span &other);
 
 	void addNumber(int number);
+
+	template<typename T>
+	void addNumber(T begin, T end) {
+		if(std::distance(begin, end) > _size)
+			throw std::exception();
+		for(; begin != end; ++begin) {
+			_ints.push_back(*begin);
+		}
+	}
 
 	int shortestSpan();
 
@@ -25,8 +37,8 @@ public:
 
 private:
 
-	std::vector<int>	_ints;
-	int					_size;
+	std::vector<int> _ints;
+	int _size;
 
 private:
 
