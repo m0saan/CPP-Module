@@ -17,8 +17,8 @@ int main() {
 
 	std::random_shuffle(v.begin(), v.end());
 
-	int result = ::easyfind(v, 89);
-	if (result == -1)
+	int result = easyfind(v, 89);
+	if(result == -1)
 		std::cout << "No such item.";
 	else
 		std::cout << "Item found" << std::endl;

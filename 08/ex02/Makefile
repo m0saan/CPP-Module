@@ -1,17 +1,15 @@
-NAME=output
-CC=g++
-CFLAGS=-Wall -Wextra -Werror
-STDCPP=-std=c++98
+NAME=span
+CC=clang++
+CFLAGS= -Wall -Wextra -Werror
+STDCPP= -std=c++98
 
 SRCS = MutantStack.hpp main.cpp MutantStack.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	@ $(CC) $(STDCPP) $(CFLAGS) $(SRCS) -o $(NAME)
+	@ $(CC) $(STDCPP) $(CFLAGS) $(SRCS) -o $(NAME) -fsanitize=address
 
-run:
-	./$(NAME)
 clean:
 	@ rm -f $(NAME)
 
