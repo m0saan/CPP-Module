@@ -7,10 +7,10 @@
 
 #include <iostream>
 
-template<typename ARR, typename FUNC>
-void Iter(ARR arr, int length, FUNC fn) {
-	for(int i = 0; i < length; ++i)
-		fn(arr[i]);
+template<typename ARR>
+void iter(ARR *arr, int length, void(*fn)(ARR)) {
+    for (int i = 0; i < length; ++i)
+        fn(arr[i]);
 }
 
 
